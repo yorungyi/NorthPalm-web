@@ -85,7 +85,10 @@ function switchMenu(tabEl, panelId) {
   tabEl.classList.add('active');
   document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
   const panel = document.getElementById(panelId);
-  if (panel) panel.classList.add('active');
+  if (!panel) return;
+  panel.classList.add('active');
+  panel.classList.add('is-switching');
+  setTimeout(() => panel.classList.remove('is-switching'), 260);
 }
 
 // ===================================================
@@ -111,6 +114,17 @@ function closeMapPopup(evt) {
   if (evt && evt.target && evt.target !== popup) return;
   popup.classList.remove('show');
   document.body.style.overflow = '';
+}
+
+function copyAddress() {
+  const address = '경기도 파주시 광탄면 쇠장이길 265';
+  if (!navigator.clipboard) {
+    showToast('복사 기능을 지원하지 않는 브라우저입니다.');
+    return;
+  }
+  navigator.clipboard.writeText(address)
+    .then(() => showToast('주소가 복사되었습니다.'))
+    .catch(() => showToast('주소 복사에 실패했습니다.'));
 }
 
 // ===================================================
