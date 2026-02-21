@@ -387,6 +387,10 @@ section { padding: 80px 0; }
   object-fit: cover;
   transition: transform .5s ease;
 }
+.menu-card-img img.menu-img-wide {
+  width: 108%;
+  margin-left: -4%;
+}
 .menu-card:hover .menu-card-img img { transform: scale(1.06); }
 .menu-card-label {
   position: absolute; top: 10px; left: 10px;
