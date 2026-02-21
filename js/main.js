@@ -96,7 +96,25 @@ function scrollToTop() {
 }
 
 // ===================================================
-// 6. SCROLL REVEAL ANIMATION
+// 6. MAP POPUP
+// ===================================================
+function openMapPopup() {
+  const popup = document.getElementById('mapPopup');
+  if (!popup) return;
+  popup.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMapPopup(evt) {
+  const popup = document.getElementById('mapPopup');
+  if (!popup) return;
+  if (evt && evt.target && evt.target !== popup) return;
+  popup.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// ===================================================
+// 7. SCROLL REVEAL ANIMATION
 // ===================================================
 function initScrollReveal() {
   const targets = document.querySelectorAll(
@@ -126,7 +144,7 @@ function initScrollReveal() {
 }
 
 // ===================================================
-// 7. ACTIVE NAV LINK ON SCROLL
+// 8. ACTIVE NAV LINK ON SCROLL
 // ===================================================
 function initActiveNavScroll() {
   const sections = document.querySelectorAll('section[id]');
@@ -172,5 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavClose();
   initScrollReveal();
   initActiveNavScroll();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMapPopup();
+  });
   console.log('🍽️ North Farm CC - F&B 식음팀 페이지 로드 완료');
 });

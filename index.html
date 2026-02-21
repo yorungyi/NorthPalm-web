@@ -17,7 +17,6 @@
       <div class="container">
         <div class="site-logo">
           <img src="images/logo-npcc.png" alt="노스팜 컨트리클럽" class="logo-img">
-          <span class="logo-brand">식음료팀 F&amp;B</span>
         </div>
         <nav class="main-nav" id="mainNav">
           <ul>
@@ -358,7 +357,7 @@
         <div class="footer-address">
           <h5>오시는 길</h5>
           <p><i class="fas fa-map-marker-alt"></i> 경기도 파주시 광탄면 쇠장이길 265<br>노스팜 클럽하우스</p>
-          <a href="#" class="footer-map-btn"><i class="fas fa-map"></i> 지도 보기</a>
+          <button type="button" class="footer-map-btn" onclick="openMapPopup()"><i class="fas fa-map"></i> 지도 보기</button>
         </div>
       </div>
       <div class="footer-bottom">
@@ -379,6 +378,20 @@
 
   <!-- Toast -->
   <div id="toast" class="toast"></div>
+
+  <!-- Map Popup -->
+  <div id="mapPopup" class="map-popup" onclick="closeMapPopup(event)">
+    <div class="map-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="mapPopupTitle">
+      <button type="button" class="map-popup-close" onclick="closeMapPopup()"><i class="fas fa-times"></i></button>
+      <h3 id="mapPopupTitle">노스팜 클럽하우스 위치</h3>
+      <img
+        src="https://staticmap.openstreetmap.de/staticmap.php?center=37.7888930,126.9110085&zoom=16&size=900x520&maptype=mapnik&markers=37.7888930,126.9110085,red-pushpin"
+        alt="경기도 파주시 광탄면 쇠장이길 265 지도"
+        class="map-popup-img"
+      >
+      <p>경기도 파주시 광탄면 쇠장이길 265</p>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
