@@ -552,6 +552,12 @@ section { padding: 80px 0; }
   font-size: .88rem; color: var(--green-main);
   font-weight: 700; margin-bottom: 12px;
 }
+.promo-text-tight {
+  font-size: .8rem !important;
+  letter-spacing: -0.01em;
+  word-spacing: -0.04em;
+  white-space: nowrap;
+}
 
 /* 프로모션 상세 리스트 */
 .promo-detail-list { margin-top: 12px; }
@@ -737,6 +743,7 @@ section { padding: 80px 0; }
   .snack-duo-wrap { grid-template-columns: 1fr; max-width: 480px; }
   .snack-card--featured { transform: none; }
   .hero-scroll-hint { display: none; }
+  .promo-text-tight { white-space: normal; }
 }
 @media (max-width: 680px) {
   section { padding: 56px 0; }
