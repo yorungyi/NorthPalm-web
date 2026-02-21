@@ -583,6 +583,36 @@ section { padding: 80px 0; }
 .promo-price-row del { color: var(--gray-3); font-size: .8rem; }
 .promo-price-row strong { color: #c0392b; font-size: .95rem; }
 
+.promo-checklist {
+  margin-top: 28px;
+  background: #fff;
+  border: 1px solid var(--gray-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 22px 24px;
+}
+.promo-checklist h3 {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+.promo-checklist-item {
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--gray-2);
+}
+.promo-checklist-item:last-child { border-bottom: none; padding-bottom: 0; }
+.promo-checklist-item h4 {
+  font-size: .9rem;
+  color: var(--green-deep);
+  margin-bottom: 6px;
+}
+.promo-checklist-item p {
+  font-size: .83rem;
+  line-height: 1.55;
+  color: var(--dark-mid);
+}
+
 /* ===================================================
    FOOTER
    =================================================== */
