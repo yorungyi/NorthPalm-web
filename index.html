@@ -384,11 +384,12 @@
     <div class="map-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="mapPopupTitle">
       <button type="button" class="map-popup-close" onclick="closeMapPopup()"><i class="fas fa-times"></i></button>
       <h3 id="mapPopupTitle">노스팜 클럽하우스 위치</h3>
-      <img
-        src="https://staticmap.openstreetmap.de/staticmap.php?center=37.7888930,126.9110085&zoom=16&size=900x520&maptype=mapnik&markers=37.7888930,126.9110085,red-pushpin"
-        alt="경기도 파주시 광탄면 쇠장이길 265 지도"
-        class="map-popup-img"
-      >
+      <iframe
+        class="map-popup-frame"
+        title="경기도 파주시 광탄면 쇠장이길 265 지도"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=126.9010%2C37.7835%2C126.9210%2C37.7943&layer=mapnik&marker=37.7888930%2C126.9110085"
+        loading="lazy"
+      ></iframe>
       <p>경기도 파주시 광탄면 쇠장이길 265</p>
     </div>
   </div>
