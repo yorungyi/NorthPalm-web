@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노스팜 컨트리클럽 | F&B 식음료팀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-main">
+      <div class="container">
+        <div class="site-logo">
+          <img src="images/logo-npcc.png" alt="노스팜 컨트리클럽" class="logo-img">
+          <span class="logo-brand">식음료팀 F&amp;B</span>
+        </div>
+        <nav class="main-nav" id="mainNav">
+          <ul>
+            <li><a href="#restaurant">레스토랑</a></li>
+            <li><a href="#snack-house">그늘집</a></li>
+            <li><a href="#promotion">프로모션</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-hamburger" id="btnHamburger" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=900&fit=crop')">
+        <div class="hero-content">
+          <span class="hero-eyebrow">NORTH FARM CC · RESTAURANT</span>
+          <h1 class="hero-title">자연과 함께하는<br>특별한 다이닝 경험</h1>
+          <p class="hero-desc">코스의 감동을 식탁 위에서도 느껴보세요.<br>노스팜CC 식음팀이 준비한 프리미엄 메뉴를 만나보세요.</p>
+          <div class="hero-btns">
+            <a href="#restaurant" class="btn btn--primary">메뉴 바로가기</a>
+            <a href="#promotion" class="btn btn--outline">프로모션 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1920&h=900&fit=crop')">
+        <div class="hero-content">
+          <span class="hero-eyebrow">SNACK HOUSE</span>
+          <h1 class="hero-title">그늘집에서 즐기는<br>신선한 간식 한 상</h1>
+          <p class="hero-desc">라운딩 중 에너지 충전을 위한 특별 메뉴.<br>9홀·18홀 그늘집과 스타트하우스에서 만나보세요.</p>
+          <div class="hero-btns">
+            <a href="#snack-house" class="btn btn--primary">그늘집 메뉴</a>
+            <a href="#promotion" class="btn btn--outline">이벤트 보기</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=1920&h=900&fit=crop')">
+        <div class="hero-content">
+          <span class="hero-eyebrow">PROMOTION</span>
+          <h1 class="hero-title">셰프가 직접 선보이는<br>계절의 맛</h1>
+          <p class="hero-desc">엄선된 식재료와 정성이 담긴 코스 요리.<br>라운드 후 최고의 식사를 경험하세요.</p>
+          <div class="hero-btns">
+            <a href="#restaurant" class="btn btn--primary">레스토랑 보기</a>
+            <a href="#promotion" class="btn btn--outline">프로모션 보기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-nav">
+      <button class="hero-prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+      <div class="hero-dots">
+        <button class="hero-dot active" onclick="goSlide(0)"></button>
+        <button class="hero-dot" onclick="goSlide(1)"></button>
+        <button class="hero-dot" onclick="goSlide(2)"></button>
+      </div>
+      <button class="hero-next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== QUICK INFO BAR ===== -->
+  <section class="quick-info-bar">
+    <div class="container">
+      <div class="quick-info-grid">
+        <div class="quick-info-item">
+          <i class="fas fa-utensils"></i>
+          <div>
+            <strong>클럽하우스 레스토랑</strong>
+            <span>매일 06:00 ~ 21:00</span>
+          </div>
+        </div>
+        <div class="quick-info-item">
+          <i class="fas fa-coffee"></i>
+          <div>
+            <strong>그늘집 운영</strong>
+            <span>07:00 ~ 17:00 (코스 내)</span>
+          </div>
+        </div>
+        <div class="quick-info-item">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <strong>식음팀 직통</strong>
+            <span>031-950-6962</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESTAURANT SECTION ===== -->
+  <section class="restaurant-section" id="restaurant">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">RESTAURANT</span>
+        <h2 class="section-title">클럽하우스 레스토랑</h2>
+        <p class="section-desc">최상의 식재료와 셰프의 정성으로 완성한 노스팜CC 정통 요리</p>
+      </div>
+      <div class="menu-tabs">
+        <button class="menu-tab active" onclick="switchMenu(this, 'menu-lunch')">중식 코스</button>
+        <button class="menu-tab" onclick="switchMenu(this, 'menu-breakfast')">조식</button>
+        <button class="menu-tab" onclick="switchMenu(this, 'menu-dinner')">석식</button>
+        <button class="menu-tab" onclick="switchMenu(this, 'menu-alacarte')">일품요리</button>
+      </div>
+      <div class="menu-panels">
+
+        <!-- 중식 -->
+        <div class="menu-panel active" id="menu-lunch">
+          <div class="menu-grid">
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=260&fit=crop" alt="런치 코스 A">
+                <span class="menu-card-label">SIGNATURE</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>시그니처 런치 코스 A</h4>
+                <p>샐러드 + 스프 + 메인 + 후식</p>
+                <span class="menu-price">₩55,000</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=260&fit=crop" alt="한식 코스">
+                <span class="menu-card-label">KOREAN</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>한식 코스 정찬</h4>
+                <p>전채 + 탕 + 구이 + 찬 + 후식</p>
+                <span class="menu-price">₩68,000</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=260&fit=crop" alt="스테이크 코스">
+                <span class="menu-card-label">PREMIUM</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>프리미엄 스테이크 코스</h4>
+                <p>전채 + 수프 + 스테이크 + 디저트</p>
+                <span class="menu-price">₩98,000</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=260&fit=crop" alt="단체 코스">
+                <span class="menu-card-label">GROUP</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>단체 예약 코스 (10인~)</h4>
+                <p>맞춤형 구성 / 사전 협의</p>
+                <span class="menu-price">문의 필요</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 조식 -->
+        <div class="menu-panel" id="menu-breakfast">
+          <div class="menu-grid">
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=260&fit=crop" alt="조식 뷔페">
+                <span class="menu-card-label">BUFFET</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>얼리버드 조식 뷔페</h4>
+                <p>한식/양식 뷔페 + 음료 포함</p>
+                <span class="menu-price">₩18,000 / 1인</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1484723091739-30990cbba0ff?w=400&h=260&fit=crop" alt="한식 조식">
+                <span class="menu-card-label">KOREAN</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>든든한 한식 조식 세트</h4>
+                <p>죽 + 반찬 + 국 + 음료</p>
+                <span class="menu-price">₩22,000 / 1인</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 석식 -->
+        <div class="menu-panel" id="menu-dinner">
+          <div class="menu-grid">
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=260&fit=crop" alt="석식 코스">
+                <span class="menu-card-label">DINNER</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>프리미엄 석식 코스</h4>
+                <p>전채 + 메인 + 와인 + 디저트</p>
+                <span class="menu-price">₩88,000 / 1인</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=260&fit=crop" alt="BBQ 디너">
+                <span class="menu-card-label">BBQ</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>야외 BBQ 석식 패키지</h4>
+                <p>고기류 + 사이드 + 음료</p>
+                <span class="menu-price">₩55,000 / 2인</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 일품 -->
+        <div class="menu-panel" id="menu-alacarte">
+          <div class="menu-grid">
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=400&h=260&fit=crop" alt="파스타">
+                <span class="menu-card-label">PASTA</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>트러플 크림 파스타</h4>
+                <p>런치/디너 동시 운영</p>
+                <span class="menu-price">₩28,000</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=260&fit=crop" alt="비빔밥">
+                <span class="menu-card-label">KOREAN</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>수제 돌솥 비빔밥</h4>
+                <p>국내산 재료만 사용</p>
+                <span class="menu-price">₩18,000</span>
+              </div>
+            </div>
+            <div class="menu-card">
+              <div class="menu-card-img">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=260&fit=crop" alt="샐러드">
+                <span class="menu-card-label">SALAD</span>
+              </div>
+              <div class="menu-card-info">
+                <h4>시저 샐러드 플레이트</h4>
+                <p>유기농 채소 + 크루통</p>
+                <span class="menu-price">₩22,000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SNACK HOUSE SECTION ===== -->
+  <section class="snackhouse-section" id="snack-house">
+    <div class="snackhouse-bg">
+      <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=600&fit=crop" alt="골프코스 배경" class="snackhouse-bg-img">
+      <div class="snackhouse-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="section-header section-header--light">
+        <span class="section-eyebrow">SNACK HOUSE</span>
+        <h2 class="section-title">그늘집</h2>
+        <p class="section-desc">라운딩 중 에너지 충전을 위한 신선한 간식과 음료</p>
+      </div>
+      <div class="snack-duo-wrap">
+        <div class="snack-card snack-card--featured">
+          <div class="snack-featured-tag">SPECIAL DEAL</div>
+          <div class="snack-icon"><i class="fas fa-hotdog"></i></div>
+          <h4>그늘집</h4>
+          <ul>
+            <li>핫도그 / 햄버거</li>
+            <li>우동 / 짜장면</li>
+            <li>파전 / 도시락</li>
+            <li>맥주 / 음료</li>
+          </ul>
+          <div class="snack-price-range">₩5,000 ~ ₩15,000</div>
+        </div>
+        <div class="snack-card">
+          <div class="snack-icon"><i class="fas fa-coffee"></i></div>
+          <h4>스타트하우스</h4>
+          <ul>
+            <li>아메리카노 / 라떼</li>
+            <li>스무디 / 에이드</li>
+            <li>샌드위치 / 크로와상</li>
+            <li>에너지 드링크</li>
+          </ul>
+          <div class="snack-price-range">₩3,000 ~ ₩9,000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROMOTION SECTION ===== -->
+  <section class="promo-banner" id="promotion">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">PROMOTION</span>
+        <h2 class="section-title">현재 진행 중인 프로모션</h2>
+        <p class="section-desc">노스팜CC 식음팀이 준비한 특별한 혜택을 확인하세요</p>
+      </div>
+      <div class="promo-grid">
+        <div class="promo-card promo-card--main">
+          <div class="promo-card-img">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop" alt="봄 시즌 스페셜">
+          </div>
+          <div class="promo-card-body">
+            <span class="promo-badge promo-badge--green">시즌 한정</span>
+            <h3>봄 시즌 스페셜 코스메뉴</h3>
+            <p>3코스 ₩65,000 / 5코스 ₩98,000</p>
+            <div class="promo-detail-list">
+              <div class="promo-detail-item"><i class="fas fa-calendar"></i> 운영기간 : 2026.03.01 ~ 05.31</div>
+              <div class="promo-detail-item"><i class="fas fa-utensils"></i> 클럽하우스 레스토랑 한정</div>
+              <div class="promo-detail-item"><i class="fas fa-leaf"></i> 봄나물 샐러드 · 제철 생선구이 · 딸기 디저트</div>
+            </div>
+          </div>
+        </div>
+        <div class="promo-card">
+          <div class="promo-card-img">
+            <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=260&fit=crop" alt="그늘집 세트">
+          </div>
+          <div class="promo-card-body">
+            <span class="promo-badge promo-badge--gold">HOT DEAL</span>
+            <h3>그늘집 봄 간식 세트 특가</h3>
+            <div class="promo-price-row">
+              <span>2인 세트</span>
+              <span><del>₩28,000</del> → <strong>₩22,000</strong></span>
+            </div>
+            <div class="promo-price-row">
+              <span>4인 세트</span>
+              <span><del>₩52,000</del> → <strong>₩40,000</strong></span>
+            </div>
+            <div class="promo-detail-item" style="margin-top:10px;"><i class="fas fa-clock"></i> 07:00 ~ 17:00 · 9홀/18홀 동시 운영</div>
+          </div>
+        </div>
+        <div class="promo-card">
+          <div class="promo-card-img">
+            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=260&fit=crop" alt="조식 패키지">
+          </div>
+          <div class="promo-card-body">
+            <span class="promo-badge promo-badge--dark">얼리버드</span>
+            <h3>조식 패키지 특가</h3>
+            <p>1인 ₩18,000 (음료 포함)</p>
+            <div class="promo-detail-list">
+              <div class="promo-detail-item"><i class="fas fa-sun"></i> 06:00 ~ 09:00 운영</div>
+              <div class="promo-detail-item"><i class="fas fa-user-friends"></i> 2인 이상 예약 시 적용</div>
+              <div class="promo-detail-item"><i class="fas fa-concierge-bell"></i> 한식/양식 뷔페 + 무료 음료</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="footer-logo-fnb">식음료팀 F&amp;B</span>
+          </div>
+          <p class="footer-brand-desc">자연과 함께하는 최고의 다이닝.<br>노스팜CC 식음팀이 최상의 미식 경험을 제공합니다.</p>
+          <div class="footer-sns">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-info">
+          <h5>식음팀 안내</h5>
+          <ul>
+            <li><i class="fas fa-phone-alt"></i> 031-950-6962</li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>식음 메뉴</h5>
+          <ul>
+            <li><a href="#restaurant">클럽하우스 레스토랑</a></li>
+            <li><a href="#snack-house">그늘집</a></li>
+            <li><a href="#snack-house">스타트하우스</a></li>
+            <li><a href="#promotion">프로모션 &amp; 이벤트</a></li>
+          </ul>
+        </div>
+        <div class="footer-address">
+          <h5>오시는 길</h5>
+          <p><i class="fas fa-map-marker-alt"></i> 경기도 파주시 광탄면 쇠장이길 265<br>노스팜 클럽하우스</p>
+          <a href="#" class="footer-map-btn"><i class="fas fa-map"></i> 지도 보기</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Northpalm Country Club · F&amp;B Team. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="https://www.npcc.co.kr" target="_blank">노스팜CC 홈페이지</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING SCROLL TOP ===== -->
+  <div class="floating-btns">
+    <button class="floating-btn floating-btn--top" onclick="scrollToTop()" title="맨 위로">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
