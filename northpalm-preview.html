@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>North Palm Modal Preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap');
+
+    :root {
+      --np-gold: #b68a3a;
+      --np-deepgreen: #1e3d2f;
+      --np-overlay: rgba(0, 0, 0, 0.55);
+      --np-card: rgba(15, 18, 16, 0.85);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Noto Serif KR", serif;
+      background: #f4f1ea;
+    }
+
+    .np-page {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      color: #1f1f1f;
+    }
+
+    .np-page h1 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .np-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      font-family: "Noto Serif KR", serif;
+    }
+
+    .np-modal.is-open {
+      display: block;
+    }
+
+    .np-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: var(--np-overlay);
+    }
+
+    .np-modal__card {
+      position: relative;
+      width: min(720px, 90vw);
+      margin: 8vh auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      color: #f2f2f2;
+      background: var(--np-card);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      background-image:
+        linear-gradient(to bottom, rgba(10, 12, 10, 0.7), rgba(10, 12, 10, 0.85)),
+        url("https://example.com/northpalm-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      padding: 40px 36px 36px;
+    }
+
+    .np-modal__content {
+      text-align: center;
+    }
+
+    .np-modal__eyebrow {
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: #d9c7a3;
+      margin: 0 0 10px;
+    }
+
+    .np-modal__title {
+      font-size: 26px;
+      line-height: 1.4;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .np-modal__subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #dcdcdc;
+      margin: 0 0 26px;
+    }
+
+    .np-modal__cta {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--np-gold);
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .np-modal__cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .np-modal__close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: 0;
+      color: #ffffff;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      .np-modal__title {
+        font-size: 20px;
+      }
+      .np-modal__card {
+        margin-top: 6vh;
+        padding: 30px 24px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="np-page">
+    <h1>North Palm Modal Preview</h1>
+  </div>
+
+  <div id="northpalm-modal" class="np-modal" aria-hidden="true">
+    <div class="np-modal__backdrop"></div>
+    <div class="np-modal__card" role="dialog" aria-modal="true" aria-labelledby="np-modal-title">
+      <button class="np-modal__close" type="button" aria-label="닫기">×</button>
+      <div class="np-modal__content">
+        <p class="np-modal__eyebrow">NORTH PALM</p>
+        <h2 id="np-modal-title" class="np-modal__title">라운드의 마침표, 노스팜의 테이블에서 완성됩니다.</h2>
+        <p class="np-modal__subtitle">가까운 곳에 좋은 만남과 정갈한 음식이 준비되어 있습니다.</p>
+        <a class="np-modal__cta" href="https://yorungyi.github.io/NorthPalm-web/" target="_blank" rel="noopener">
+          오늘의 추천 메뉴 보기
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('northpalm-modal');
+      if (!modal) return;
+
+      function openModal() {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      openModal();
+
+      var closeBtn = modal.querySelector('.np-modal__close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+      }
+
+      var backdrop = modal.querySelector('.np-modal__backdrop');
+      if (backdrop) {
+        backdrop.addEventListener('click', closeModal);
+      }
+    })();
+  </script>
+</body>
+</html>
