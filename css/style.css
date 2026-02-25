@@ -913,32 +913,48 @@ section { padding: 80px 0; }
   color: var(--dark-mid);
 }
 .map-popup-actions {
-  margin-top: 12px;
-  display: flex;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  flex-wrap: wrap;
 }
 .map-popup-actions a,
 .map-popup-actions button {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 10px 14px;
+  gap: 6px;
+  padding: 12px 8px;
   border-radius: var(--radius-sm);
-  font-size: .82rem;
+  font-size: .78rem;
   font-weight: 700;
   border: 1px solid var(--gray-2);
   color: var(--dark-mid);
   background: #fff;
+  transition: var(--transition);
 }
-.map-popup-actions a:first-child {
-  background: var(--green-main);
-  border-color: var(--green-main);
-  color: #fff;
+.map-popup-actions i { font-size: 1.1rem; }
+
+/* Brand Colors */
+.btn-naver { border-color: #03c75a !important; color: #03c75a !important; }
+.btn-naver:hover { background: #03c75a !important; color: #fff !important; }
+.btn-kakao { border-color: #fee500 !important; color: #3c1e1e !important; }
+.btn-kakao:hover { background: #fee500 !important; }
+.btn-tmap  { border-color: #ff0000 !important; color: #ff0000 !important; }
+.btn-tmap:hover  { background: #ff0000 !important; color: #fff !important; }
+
+.btn-call { grid-column: span 1; background: var(--green-pale) !important; color: var(--green-deep) !important; border-color: var(--green-main) !important; }
+.btn-copy { grid-column: span 2; }
+
+@media (max-width: 480px) {
+  .map-popup-actions { grid-template-columns: 1fr 1fr 1fr; }
+  .btn-call { grid-column: span 3; flex-direction: row; gap: 10px; font-size: .85rem; }
+  .btn-copy { grid-column: span 3; flex-direction: row; gap: 10px; font-size: .85rem; }
 }
+
 .map-popup-actions button:hover,
-.map-popup-actions a:hover { filter: brightness(.96); }
+.map-popup-actions a:hover { filter: brightness(.98); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 .map-popup-close {
   position: absolute;
   right: 10px;

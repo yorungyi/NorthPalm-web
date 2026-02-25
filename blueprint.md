@@ -32,5 +32,8 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
 3. **UI Fine-tuning**:
     - Adjusted `object-position` for Promotion 1 (Ugeoji Haejangguk) to center its content better within the frame. (Corrected to move content upwards)
     - Updated Restaurant breakfast menu: '전주식콩나물국밥' renamed to '전주식콩나물따로국밥'.
-4. **Commit & Push**: Commit the design overhaul to trigger auto-deployment.
-5. **Verification**: Verify the new luxury aesthetic on the live URL.
+4. **Native Map App Integration**:
+    - Replaced generic map links with dedicated buttons for **Naver Map, Kakao Map, and T-map**.
+    - Implemented device detection to trigger app schemes on mobile or open web versions on desktop.
+5. **Commit & Push**: Commit the design overhaul to trigger auto-deployment.
+6. **Verification**: Verify the new luxury aesthetic on the live URL.

@@ -99,7 +99,7 @@ function scrollToTop() {
 }
 
 // ===================================================
-// 6. MAP POPUP
+// 6. MAP POPUP & NATIVE APPS
 // ===================================================
 function openMapPopup() {
   const popup = document.getElementById('mapPopup');
@@ -125,6 +125,35 @@ function copyAddress() {
   navigator.clipboard.writeText(address)
     .then(() => showToast('주소가 복사되었습니다.'))
     .catch(() => showToast('주소 복사에 실패했습니다.'));
+}
+
+function initMapAppLinks() {
+  const mapButtons = document.querySelectorAll('.btn-map-app');
+  
+  mapButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const appUrl = btn.getAttribute('data-app');
+      const webUrl = btn.getAttribute('data-web');
+      
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        // 앱 호출 시도
+        window.location.href = appUrl;
+        
+        // 앱이 설치되어 있지 않을 경우를 대비해 약간의 지연 후 웹페이지로 이동
+        setTimeout(() => {
+          if (!document.hidden) {
+            window.open(webUrl, '_blank');
+          }
+        }, 1500);
+      } else {
+        // 데스크탑이면 새 창에서 웹 지도 열기
+        window.open(webUrl, '_blank');
+      }
+    });
+  });
 }
 
 // ===================================================
@@ -204,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavClose();
   initScrollReveal();
   initActiveNavScroll();
+  initMapAppLinks();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMapPopup();
   });
