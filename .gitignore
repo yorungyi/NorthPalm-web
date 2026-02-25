@@ -1,0 +1,16 @@
+# Logs
+*.log
+firebase-debug.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idx/
+.gemini/
+
+# Temp files
+*.zip
+*.tmp
