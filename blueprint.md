@@ -30,6 +30,6 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
     - **Menu Cards**: Implement layered shadows, gold accents, and elegant hover animations.
     - **Typography**: Enhance font sizes and spacing for an editorial look.
 3. **UI Fine-tuning**:
-    - Adjusted `object-position` for Promotion 1 (Ugeoji Haejangguk) to center its content better within the frame.
+    - Adjusted `object-position` for Promotion 1 (Ugeoji Haejangguk) to center its content better within the frame. (Corrected to move content upwards)
 4. **Commit & Push**: Commit the design overhaul to trigger auto-deployment.
 5. **Verification**: Verify the new luxury aesthetic on the live URL.
