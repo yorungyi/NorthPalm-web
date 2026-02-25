@@ -23,7 +23,11 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
 - **Automation**: Every push to the `main` branch triggers a new build and deployment.
 
 ## Current Plan & Steps
-1. **Clean up redundant files**: Remove root `style.css` and `main.js` which are placeholders.
-2. **Organize assets (Optional but recommended)**: Consider moving all root images to the `images/` directory and updating `index.html`. (Will keep in root for now as requested/implied by the user's focus on the workflow).
-3. **Commit & Push**: Commit the cleanup and any pending changes to GitHub to trigger auto-deployment.
-4. **Verification**: Verify the deployment on the live URL.
+1. **Clean up redundant files**: (Done) Removed root `style.css` and `main.js`.
+2. **Luxury Design Redesign (In Progress)**:
+    - Apply 'Luxury & Refined' aesthetic using `frontend-design` principles.
+    - **Hero Section**: Refine typography, left-align layout, and enhance visual depth with sophisticated overlays.
+    - **Menu Cards**: Implement layered shadows, gold accents, and elegant hover animations.
+    - **Typography**: Enhance font sizes and spacing for an editorial look.
+3. **Commit & Push**: Commit the design overhaul to trigger auto-deployment.
+4. **Verification**: Verify the new luxury aesthetic on the live URL.

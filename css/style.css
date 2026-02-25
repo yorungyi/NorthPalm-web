@@ -18,27 +18,27 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ---- CSS Variables ---- */
 :root {
-  --green-deep:   #1a3a2a;
-  --green-main:   #2e6b4f;
-  --green-light:  #4a9b72;
-  --green-pale:   #d6ede3;
-  --gold:         #c9a84c;
-  --gold-light:   #f0d78c;
-  --gold-pale:    #fdf5e0;
-  --dark:         #1c1c1c;
-  --dark-mid:     #3a3a3a;
-  --gray-1:       #f7f7f5;
-  --gray-2:       #e8e8e4;
-  --gray-3:       #b0b0a8;
+  --green-deep:   #0d2319; /* 더욱 깊고 묵직한 그린 */
+  --green-main:   #1a3d2f;
+  --green-light:  #2e6b4f;
+  --green-pale:   #e8f3ee;
+  --gold:         #b68a3a; /* 무광 느낌의 고급스러운 골드 */
+  --gold-light:   #d9c185;
+  --gold-pale:    #f9f6ef;
+  --dark:         #121212;
+  --dark-mid:     #2c2c2c;
+  --gray-1:       #fafaf9;
+  --gray-2:       #ecece8;
+  --gray-3:       #8e8e88;
   --white:        #ffffff;
-  --shadow-sm:    0 2px 12px rgba(0,0,0,.08);
-  --shadow-md:    0 8px 32px rgba(0,0,0,.14);
-  --shadow-lg:    0 16px 56px rgba(0,0,0,.2);
-  --radius-sm:    6px;
+  --shadow-sm:    0 4px 12px rgba(0,0,0,.04);
+  --shadow-md:    0 12px 32px rgba(0,0,0,.08);
+  --shadow-lg:    0 24px 64px rgba(0,0,0,.12);
+  --radius-sm:    4px;
   --radius-md:    12px;
-  --radius-lg:    20px;
-  --transition:   all .3s ease;
-  --header-h:     72px;
+  --radius-lg:    24px;
+  --transition:   all .4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 더 부드러운 애니메이션 */
+  --header-h:     80px;
 }
 
 /* ===================================================
@@ -51,53 +51,114 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .header-main {
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--gray-2);
-  box-shadow: var(--shadow-sm);
+  background: rgba(255,255,255,.98);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,.04);
 }
 .header-main .container {
   display: flex; align-items: center; justify-content: space-between;
   height: var(--header-h);
-  gap: 20px;
+  gap: 32px;
 }
 
 /* Logo */
 .site-logo {
-  display: flex; align-items: center; gap: 10px;
-  flex-shrink: 0;
-  cursor: default;
+  display: flex; align-items: center; gap: 12px;
 }
 .logo-img {
-  height: 38px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+  height: 42px;
+  filter: grayscale(1) brightness(0.2); /* 로고를 더 차분하게 */
+  transition: var(--transition);
 }
-.logo-brand {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--green-deep);
-  letter-spacing: .06em;
-  white-space: nowrap;
-}
+.site-header.scrolled .logo-img { filter: none; }
 
 /* Navigation */
 .main-nav ul {
-  display: flex; gap: 4px;
+  display: flex; gap: 8px;
 }
 .main-nav a {
-  display: flex; align-items: center;
-  padding: 9px 20px;
-  min-height: 44px;
-  font-size: .9rem;
+  padding: 8px 18px;
+  font-size: .88rem;
   font-weight: 500;
   color: var(--dark-mid);
-  border-radius: var(--radius-sm);
+  letter-spacing: .02em;
   transition: var(--transition);
-  position: relative;
 }
+.main-nav a:hover { color: var(--gold); }
+
+/* ===================================================
+   HERO SECTION
+   =================================================== */
+.hero-section {
+  position: relative;
+  height: 90vh; min-height: 700px;
+  overflow: hidden;
+  margin-top: 0; /* 헤더 위로 겹치도록 */
+}
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; transition: opacity 1.2s ease;
+}
+.hero-slide::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.4) 50%, rgba(0,0,0,.2) 100%);
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-content {
+  position: absolute;
+  top: 55%; left: 0;
+  transform: translateY(-50%);
+  text-align: left;
+  color: #fff;
+  width: 100%;
+  padding: 0 5%;
+  max-width: 1400px;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: .82rem;
+  letter-spacing: .4em;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,.8);
+  line-height: 1.8;
+  margin-bottom: 48px;
+  max-width: 600px;
+  font-weight: 300;
+}
+.hero-btns { display: flex; gap: 20px; justify-content: flex-start; }
+
+.btn--outline {
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 14px 40px;
+  font-size: .85rem;
+  letter-spacing: .1em;
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(5px);
+}
+.btn--outline:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
 .main-nav a::after {
   content: '';
   position: absolute; bottom: 0; left: 50%; right: 50%;
