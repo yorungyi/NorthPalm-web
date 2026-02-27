@@ -494,6 +494,38 @@ section { padding: 80px 0; }
   display: block;
   margin-bottom: 8px;
 }
+
+/* Hansang List in Menu Card */
+.menu-hansang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: var(--gold-pale);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}
+.hansang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--dark-mid);
+  padding-bottom: 4px;
+  border-bottom: 1px dashed var(--gold-light);
+}
+.hansang-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.hansang-item span {
+  font-weight: 500;
+}
+.hansang-item strong {
+  color: var(--green-main);
+  font-weight: 700;
+}
+
 .menu-condition {
   font-size: .75rem;
   color: var(--gray-3);
