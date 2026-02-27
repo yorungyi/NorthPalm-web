@@ -52,4 +52,7 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
     - Integrated a vertical Instagram-style video (`핑크 깔끔한 봄맞이 프로모션 인스타그램 스토리.mp4`) as a focal point.
     - Used a soft pink and luxury aesthetic to match the spring theme and appeal to the target audience.
     - Implemented a split-layout (Video + Benefit list) for optimal readability and engagement.
-10. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
+10. **Menu Price Formatting**:
+    - Added '/ 1인' (per person) suffix to all lunch menu prices to maintain consistency with the breakfast menu.
+    - Applied the same formatting to individual items within the 'Signature Hansang' section.
+11. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
