@@ -47,4 +47,9 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
     - Added 5 new premium lunch items: 국내산 민물장어탕, 멍게&해초비빔밥과 냉이된장찌개, 백합&왕새우 봉골레파스타, 소꼬리&통전복 사골곰탕, 전복능이 한방갈비탕.
     - Added 4 new signature 'Hansang' items: 돼지불고기, 고추장흑돼지, 매콤낙지볶음, 담백오리불고기.
     - Integrated high-quality PNG images (한상차림.png) for each new menu item.
-9. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
+9. **Ladies Day Promotion (New)**:
+    - Designed a high-impact recurring promotion section for "Ladies Day" (Every Monday).
+    - Integrated a vertical Instagram-style video (`핑크 깔끔한 봄맞이 프로모션 인스타그램 스토리.mp4`) as a focal point.
+    - Used a soft pink and luxury aesthetic to match the spring theme and appeal to the target audience.
+    - Implemented a split-layout (Video + Benefit list) for optimal readability and engagement.
+10. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
