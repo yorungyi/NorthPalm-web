@@ -35,5 +35,12 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
 4. **Native Map App Integration**:
     - Replaced generic map links with dedicated buttons for **Naver Map, Kakao Map, and T-map**.
     - Implemented device detection to trigger app schemes on mobile or open web versions on desktop.
-5. **Commit & Push**: Commit the design overhaul to trigger auto-deployment.
-6. **Verification**: Verify the new luxury aesthetic on the live URL.
+5. **Commit & Push**: (Done) Committed image optimizations and menu tab updates to trigger auto-deployment.
+6. **Image Optimization**:
+    - Replaced old `.jpg` menu images with high-quality `.png` versions.
+    - Cleaned up redundant and temporary image files from the root directory.
+    - Fixed typos in filenames (e.g., 전복내장죽).
+7. **Menu Tab Consistency**:
+    - Changed '석식' (Dinner) tab to '중식' (Lunch) to better reflect current offerings.
+    - Updated corresponding menu panel IDs for functional consistency.
+8. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
