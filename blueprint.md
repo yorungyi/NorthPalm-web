@@ -45,5 +45,6 @@ NorthPalm-web is a modern, responsive single-page application for the NorthPalm 
     - Updated corresponding menu panel IDs for functional consistency.
 8. **Lunch Menu Expansion**:
     - Added 5 new premium lunch items: 국내산 민물장어탕, 멍게&해초비빔밥과 냉이된장찌개, 백합&왕새우 봉골레파스타, 소꼬리&통전복 사골곰탕, 전복능이 한방갈비탕.
-    - Integrated high-quality PNG images for each new menu item.
+    - Added 4 new signature 'Hansang' items: 돼지불고기, 고추장흑돼지, 매콤낙지볶음, 담백오리불고기.
+    - Integrated high-quality PNG images (한상차림.png) for each new menu item.
 9. **Verification**: Verify the new luxury aesthetic and updated menu on the live URL: [northpalm-web.pages.dev](https://northpalm-web.pages.dev).
