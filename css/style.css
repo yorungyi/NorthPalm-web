@@ -646,10 +646,12 @@ section { padding: 80px 0; }
   position: relative;
   height: 600px;
   background: #000;
+  display: flex;
 }
 .focus-video-el {
   width: 100%; height: 100%;
   object-fit: cover;
+  display: block;
 }
 .video-overlay-tag {
   position: absolute; top: 20px; left: 20px;
@@ -657,6 +659,7 @@ section { padding: 80px 0; }
   padding: 6px 16px; border-radius: 30px;
   font-weight: 700; font-size: .85rem;
   box-shadow: 0 4px 12px rgba(233,30,99,.3);
+  z-index: 2;
 }
 .promo-focus-content {
   padding: 60px 50px;
@@ -703,6 +706,35 @@ section { padding: 80px 0; }
 .benefit-text span {
   font-size: .88rem; color: #666; line-height: 1.5;
 }
+
+/* Instagram Style Featured Item */
+.focus-benefit-item--featured {
+  background: rgba(255,255,255,.6);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--pink-main);
+  position: relative;
+}
+.insta-style-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.price-highlight {
+  display: block;
+  font-size: 1.2rem !important;
+  font-weight: 800;
+  color: var(--pink-main) !important;
+  margin-top: 4px;
+}
+
 .focus-info-footer {
   border-top: 1px solid rgba(233,30,99,.15);
   padding-top: 24px;
