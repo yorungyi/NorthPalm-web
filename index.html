@@ -3,510 +3,395 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>노스팜 컨트리클럽 | F&B 식음료팀</title>
+  <title>노스팜 컨트리클럽 | 클럽하우스 F&amp;B</title>
+  <meta name="description" content="노스팜CC 클럽하우스 레스토랑 조식·중식 메뉴와 가격, 그늘집·스타트하우스, 연단체 프로모션 안내. 식사 예약 문의 031-950-6962">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ===== S1 HEADER ===== -->
   <header class="site-header" id="siteHeader">
-    <div class="header-main">
-      <div class="container">
-        <div class="site-logo">
-          <img src="images/logo-npcc.png" alt="노스팜 컨트리클럽" class="logo-img">
-        </div>
-        <nav class="main-nav" id="mainNav">
-          <ul>
-            <li><a href="#restaurant">레스토랑</a></li>
-            <li><a href="#snack-house">그늘집</a></li>
-            <li><a href="#promotion">프로모션</a></li>
-          </ul>
-        </nav>
-        <div class="header-actions">
-          <button class="btn-hamburger" id="btnHamburger" onclick="toggleMobileNav()">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
+    <div class="container header-inner">
+      <a href="#top" class="site-logo" aria-label="노스팜 컨트리클럽 F&amp;B 맨 위로">
+        <img class="logo-ondark" src="images/logo-npcc-ondark.png" alt="노스팜 컨트리클럽" width="540" height="107">
+        <img class="logo-onlight" src="images/logo-npcc.png" alt="" width="540" height="107">
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="#menu">레스토랑 메뉴</a></li>
+          <li><a href="#course">그늘집·스타트하우스</a></li>
+          <li><a href="#promotion">프로모션</a></li>
+          <li><a href="#contact">오시는 길</a></li>
+        </ul>
+      </nav>
+      <a href="tel:031-950-6962" class="header-cta"><i class="fas fa-phone-alt" aria-hidden="true"></i>예약 문의<span class="num en">031-950-6962</span></a>
+      <button type="button" class="btn-hamburger" id="btnHamburger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav" onclick="toggleMobileNav()">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero-section" id="hero">
-    <div class="hero-slides">
-      <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&h=900&fit=crop')">
-        <div class="container">
-          <div class="hero-content">
-            <span class="hero-eyebrow">PREMIUM DINING · NORTHPALM</span>
-            <h1 class="hero-title">자연의 정취와<br>미식의 완벽한 조화</h1>
-            <p class="hero-desc">노스팜CC 셰프가 엄선한 최상의 식재료로<br>당신의 라운드를 더욱 빛나게 할 품격 있는 식사를 제공합니다.</p>
-            <div class="hero-btns">
-              <a href="#promotion" class="btn btn--outline">PROMOTION</a>
-              <a href="#restaurant" class="btn btn--primary">RESTAURANT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1920&h=900&fit=crop')">
-        <div class="container">
-          <div class="hero-content">
-            <span class="hero-eyebrow">SNACK HOUSE</span>
-            <h1 class="hero-title">필드 위에서 즐기는<br>신선한 에너지</h1>
-            <p class="hero-desc">라운딩의 즐거움을 더해주는 특별한 간식 메뉴.<br>스타트하우스에서 노스팜만의 별미를 만나보세요.</p>
-            <div class="hero-btns">
-              <a href="#promotion" class="btn btn--outline">VIEW EVENT</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-nav">
-      <button class="hero-prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-      <div class="hero-dots">
-        <button class="hero-dot active" onclick="goSlide(0)"></button>
-        <button class="hero-dot" onclick="goSlide(1)"></button>
-      </div>
-      <button class="hero-next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
-    </div>
-  </section>
+  <main id="top">
 
-  <!-- ===== QUICK INFO BAR ===== -->
-  <section class="quick-info-bar">
-    <div class="container">
-      <div class="quick-info-grid">
-        <div class="quick-info-item">
-          <i class="fas fa-utensils"></i>
-          <div>
-            <strong>클럽하우스 레스토랑</strong>
-            <span>시즌별 변동</span>
-          </div>
+    <!-- ===== S2 HERO — 가운데 그릇 슬라이더 ===== -->
+    <section class="hero" id="hero" aria-roledescription="carousel" aria-label="추천 메뉴" data-slider data-interval="6000">
+      <div class="container hero-stage">
+        <div class="hero-side hero-left" aria-live="polite">
+          <div data-slide="0" class="is-active"><p class="hero-kicker">클럽하우스 레스토랑 · 중식</p><h2 class="hero-name">나가사끼식<br>꽃게짬뽕</h2></div>
+          <div data-slide="1"><p class="hero-kicker">클럽하우스 레스토랑 · 중식</p><h2 class="hero-name">국내산시래기<br>민물장어탕</h2></div>
+          <div data-slide="2"><p class="hero-kicker">클럽하우스 레스토랑 · 중식</p><h2 class="hero-name">한방통전복<br>갈비탕</h2></div>
+          <div data-slide="3"><p class="hero-kicker">클럽하우스 레스토랑 · 조식 · 중식</p><h2 class="hero-name">대관령<br>황태해장국</h2></div>
+          <div data-slide="4"><p class="hero-kicker">클럽하우스 레스토랑 · 조식</p><h2 class="hero-name">노스팜<br>전복내장죽</h2></div>
         </div>
-        <div class="quick-info-item">
-          <i class="fas fa-coffee"></i>
-          <div>
-            <strong>그늘집 운영</strong>
-            <span>07:00 ~ 17:00 (코스 내)</span>
-          </div>
-        </div>
-        <div class="quick-info-item">
-          <i class="fas fa-phone-alt"></i>
-          <div>
-            <strong>식음팀 직통</strong>
-            <span>031-950-6962</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== RESTAURANT SECTION ===== -->
-  <section class="restaurant-section" id="restaurant">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">RESTAURANT</span>
-        <h2 class="section-title">클럽하우스 레스토랑</h2>
-        <p class="section-desc">최상의 식재료와 셰프의 정성으로 완성한 노스팜CC 정통 요리</p>
+        <div class="hero-dish">
+          <img data-slide="0" class="is-active" src="menu-img/jjamppong.webp" alt="나가사끼식 꽃게짬뽕 — 꽃게, 오징어, 새우, 배추가 담긴 해물 짬뽕" fetchpriority="high">
+          <img data-slide="1" src="menu-img/eel.webp" alt="국내산시래기민물장어탕 — 깻잎과 대파를 올린 붉은 장어탕">
+          <img data-slide="2" src="menu-img/galbi.webp" alt="한방통전복갈비탕 — 통전복과 갈비, 대파, 은행을 올린 맑은 갈비탕">
+          <img data-slide="3" src="menu-img/hwangtae.webp" alt="대관령황태해장국 — 황태, 콩나물, 무, 달걀을 넣은 맑은 국">
+          <img data-slide="4" src="menu-img/jeonbok.webp" alt="노스팜 전복내장죽 — 김가루와 구운 전복을 올린 죽">
+        </div>
+
+        <div class="hero-side hero-right">
+          <div data-slide="0" class="is-active"><p class="hero-price">₩22,000</p><p class="hero-meta">꽃게·오징어·새우를 넣어 끓인<br>1인 기준 · 중식 운영 시간</p></div>
+          <div data-slide="1"><p class="hero-price">₩23,000</p><p class="hero-meta">시래기와 국내산 민물장어로 끓인<br>1인 기준 · 중식 운영 시간</p></div>
+          <div data-slide="2"><p class="hero-price">₩23,000</p><p class="hero-meta">통전복과 갈비를 한방 육수에 담은<br>1인 기준 · 중식 운영 시간</p></div>
+          <div data-slide="3"><p class="hero-price">₩20,000</p><p class="hero-meta">황태와 콩나물, 무를 넣어 끓인 맑은 해장국<br>1인 기준 · 조식·중식 운영 시간</p></div>
+          <div data-slide="4"><p class="hero-price">₩24,000</p><p class="hero-meta">전복의 깊은 풍미를 담은 보양식<br>1인 기준 · 조식 운영 시간</p></div>
+        </div>
       </div>
-      <div class="menu-tabs">
-        <button class="menu-tab active" onclick="switchMenu(this, 'menu-breakfast')">조식</button>
-        <button class="menu-tab" onclick="switchMenu(this, 'menu-lunch')">중식</button>
+
+      <div class="hero-ctrl">
+        <button type="button" class="ctrl-btn" data-prev aria-label="이전 메뉴"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+        <div class="hero-dots" role="group" aria-label="메뉴 선택">
+          <button type="button" data-go="0" class="is-active" aria-label="1번 나가사끼식 꽃게짬뽕"></button>
+          <button type="button" data-go="1" aria-label="2번 국내산시래기민물장어탕"></button>
+          <button type="button" data-go="2" aria-label="3번 한방통전복갈비탕"></button>
+          <button type="button" data-go="3" aria-label="4번 대관령황태해장국"></button>
+          <button type="button" data-go="4" aria-label="5번 노스팜 전복내장죽"></button>
+        </div>
+        <span><b data-current>01</b> / 05</span>
+        <button type="button" class="ctrl-btn" data-next aria-label="다음 메뉴"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
       </div>
-      <div class="menu-panels">
+
+      <h1 class="hero-title"><span class="sr-only">노스팜 컨트리클럽 클럽하우스 레스토랑 — </span>Northpalm Clubhouse</h1>
+    </section>
+
+    <!-- ===== S3 대표 메뉴 ===== -->
+    <section class="signature" aria-labelledby="sigTitle">
+      <div class="container">
+        <div class="sec-head sec-head--center">
+          <span class="eyebrow">SIGNATURE</span>
+          <h2 class="sec-title" id="sigTitle">노스팜 클럽하우스의 대표 메뉴</h2>
+        </div>
+        <div class="bowl-row">
+          <a href="#menu" class="bowl-item" data-tab="menu-breakfast"><img src="menu-img/ugeoji.webp" alt="" loading="lazy"><strong>牛리우거지해장국</strong><span>조식 · ₩17,900</span></a>
+          <a href="#menu" class="bowl-item" data-tab="menu-breakfast"><img src="menu-img/hwangtae.webp" alt="" loading="lazy"><strong>대관령황태해장국</strong><span>조식·중식 · ₩20,000</span></a>
+          <a href="#menu" class="bowl-item" data-tab="menu-lunch"><img src="menu-img/eel.webp" alt="" loading="lazy"><strong>국내산시래기민물장어탕</strong><span>중식 · ₩23,000</span></a>
+          <a href="#menu" class="bowl-item" data-tab="menu-lunch"><img src="menu-img/jeongabok.webp" alt="" loading="lazy"><strong>사천식 전가복덮밥</strong><span>중식 · ₩25,000</span></a>
+          <a href="#menu" class="bowl-item" data-tab="menu-lunch"><img src="menu-img/jjamppong.webp" alt="" loading="lazy"><strong>나가사끼식 꽃게짬뽕</strong><span>중식 · ₩22,000</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== S4 요리 갤러리 (히어로에 없는 메뉴) ===== -->
+    <section class="dishes" id="dishes" aria-roledescription="carousel" aria-label="요리 사진" data-slider data-interval="7000">
+      <div class="dishes-bg" aria-hidden="true">
+        <img data-slide="0" class="is-active" src="photo/jeongabok.webp" alt="" loading="lazy">
+        <img data-slide="1" src="photo/domun.webp" alt="" loading="lazy">
+        <img data-slide="2" src="photo/ugeoji.webp" alt="" loading="lazy">
+        <img data-slide="3" src="photo/miyeok.webp" alt="" loading="lazy">
+        <img data-slide="4" src="photo/hansang.webp" alt="" loading="lazy">
+        <img data-slide="5" src="photo/american.webp" alt="" loading="lazy">
+        <img data-slide="6" src="photo/wings.webp" alt="" loading="lazy">
+      </div>
+
+      <button type="button" class="dishes-arrow prev" data-prev aria-label="이전 요리"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+      <button type="button" class="dishes-arrow next" data-next aria-label="다음 요리"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+
+      <div class="container dishes-inner">
+        <div class="dishes-card">
+          <img data-slide="0" class="is-active" src="photo/jeongabok.webp" alt="사천식 전가복덮밥 — 새우와 해물, 채소를 볶아 올린 덮밥" loading="lazy">
+          <img data-slide="1" src="photo/domun.webp" alt="돌문어우거지해장국 — 돌문어와 우거지, 배추를 넣은 붉은 해장국" loading="lazy">
+          <img data-slide="2" src="photo/ugeoji.webp" alt="牛리우거지해장국 — 우거지와 소고기, 대파를 올린 해장국" loading="lazy">
+          <img data-slide="3" src="photo/miyeok.webp" alt="우신빨간들깨미역국 — 미역과 소고기, 버섯을 넣은 붉은 미역국" loading="lazy">
+          <img data-slide="4" src="photo/hansang.webp" alt="시그니처 한상차림 — 메인 요리와 반찬, 쌈채소, 찌개 구성" loading="lazy">
+          <img data-slide="5" src="photo/american.webp" alt="미국식 조식 — 달걀 요리, 빵, 커피" loading="lazy">
+          <img data-slide="6" src="photo/wings.webp" alt="닭날개 안주" loading="lazy">
+        </div>
+        <p class="dishes-title" aria-hidden="true"><span>Signature</span><span>Dishes</span></p>
+        <div class="dishes-cap" aria-live="polite">
+          <div data-slide="0" class="is-active"><h3>사천식 전가복덮밥</h3><p>새우와 해물, 채소를 사천식 소스로 볶아 올린 덮밥 · 중식 ₩25,000</p></div>
+          <div data-slide="1"><h3>돌문어우거지해장국</h3><p>돌문어와 우거지의 시원한 해장국 · 중식 ₩20,000</p></div>
+          <div data-slide="2"><h3>牛리우거지해장국</h3><p>우거지와 소고기로 끓인 진한 해장국 · 조식 ₩17,900</p></div>
+          <div data-slide="3"><h3>우신빨간들깨미역국</h3><p>고소한 들깨 풍미가 살아있는 미역국 · 조식 ₩18,900</p></div>
+          <div data-slide="4"><h3>시그니처 한상차림</h3><p>메인 요리 4종 중 선택 · 1인 ₩18,900부터 · 3인 이상 주문</p></div>
+          <div data-slide="5"><h3>미국식 조식</h3><p>달걀 요리와 빵, 커피로 구성한 아침 · 조식 ₩28,000</p></div>
+          <div data-slide="6"><h3>닭날개 안주 · 연단체 서비스</h3><p>연단체 전후식사 이용 시 팀당 5만원 상당 무료 제공 · 조건은 아래 프로모션 참고</p></div>
+        </div>
+        <div class="dishes-thumbs" role="group" aria-label="요리 선택">
+          <button type="button" data-go="0" class="is-active" aria-label="사천식 전가복덮밥"><img src="photo/jeongabok.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="1" aria-label="돌문어우거지해장국"><img src="photo/domun.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="2" aria-label="牛리우거지해장국"><img src="photo/ugeoji.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="3" aria-label="우신빨간들깨미역국"><img src="photo/miyeok.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="4" aria-label="시그니처 한상차림"><img src="photo/hansang.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="5" aria-label="미국식 조식"><img src="photo/american.webp" alt="" loading="lazy"></button>
+          <button type="button" data-go="6" aria-label="닭날개 안주"><img src="photo/wings.webp" alt="" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== S5 메뉴 그리드 ===== -->
+    <section class="menu" id="menu">
+      <div class="container">
+        <div class="menu-top">
+          <div class="sec-head">
+            <span class="eyebrow">RESTAURANT MENU</span>
+            <h2 class="sec-title">클럽하우스 레스토랑 메뉴</h2>
+          </div>
+          <div class="menu-tabs" role="tablist" aria-label="식사 구분">
+            <button type="button" class="menu-tab active" role="tab" aria-selected="true" aria-controls="menu-breakfast" onclick="switchMenu(this, 'menu-breakfast')">조식</button>
+            <button type="button" class="menu-tab" role="tab" aria-selected="false" aria-controls="menu-lunch" onclick="switchMenu(this, 'menu-lunch')">중식</button>
+          </div>
+        </div>
+        <p class="menu-note" id="menuNote">조식 운영 시간 내 주문 · 가격은 1인 기준</p>
 
         <!-- 조식 -->
-        <div class="menu-panel active" id="menu-breakfast">
-          <div class="menu-grid">
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="오징어&콩나물국밥.png" alt="오징어&콩나물국밥">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>오징어&amp;콩나물국밥</h4>
-                <p class="menu-feature">핵심 특징: 해장에 좋은 시원한 국물 한식</p>
-                <span class="menu-price">₩16,900 / 1인</span>
-                <p class="menu-condition">이용조건: 조식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="牛리우거지해장국.png" alt="牛리우거지해장국">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>牛리우거지해장국</h4>
-                <p class="menu-feature">핵심 특징: 우거지와 소고기로 끓인 진한 해장국</p>
-                <span class="menu-price">₩17,900 / 1인</span>
-                <p class="menu-condition">이용조건: 조식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="통전복나주식곰탕.png" alt="통전복나주식곰탕">
-                <span class="menu-card-label">PREMIUM</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>통전복나주식곰탕</h4>
-                <p class="menu-feature">핵심 특징: 통전복이 들어간 진한 나주식 곰탕</p>
-                <span class="menu-price">₩21,000 / 1인</span>
-                <p class="menu-condition">이용조건: 조식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="노스팜_전복내장죽.png" alt="노스팜 전복내장죽">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>노스팜 전복내장죽</h4>
-                <p class="menu-feature">핵심 특징: 전복의 깊은 풍미를 담은 보양식</p>
-                <span class="menu-price">₩24,000 / 1인</span>
-                <p class="menu-condition">이용조건: 조식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="미국식조식().png" alt="미국식 조식">
-                <span class="menu-card-label">WESTERN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>미국식 조식</h4>
-                <p class="menu-feature">핵심 특징: 신선한 달걀 요리와 빵, 커피의 구성</p>
-                <span class="menu-price">₩28,000 / 1인</span>
-                <p class="menu-condition">이용조건: 조식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
+        <div class="menu-panel active" id="menu-breakfast" role="tabpanel">
+          <div class="tile-grid">
+            <article class="tile"><div class="tile-img t1"><span class="tile-num">01</span><img src="menu-img/ugeoji.webp" alt="牛리우거지해장국" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>牛리우거지해장국</h3><p class="tile-desc">우거지와 소고기로 끓인 진한 해장국</p><p class="tile-price">₩17,900<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t2"><span class="tile-num">02</span><img src="menu-img/miyeok.webp" alt="우신빨간들깨미역국" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>우신빨간들깨미역국</h3><p class="tile-desc">고소한 들깨 풍미가 살아있는 미역국</p><p class="tile-price">₩18,900<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t3"><span class="tile-num">03</span><img src="menu-img/hwangtae.webp" alt="대관령황태해장국" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>대관령황태해장국</h3><p class="tile-desc">황태와 콩나물, 무를 넣어 끓인 맑은 해장국</p><p class="tile-price">₩20,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t5"><span class="tile-num">04</span><img src="menu-img/jeonbok.webp" alt="노스팜 전복내장죽" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>노스팜 전복내장죽</h3><p class="tile-desc">전복의 깊은 풍미를 담은 보양식</p><p class="tile-price">₩24,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t4"><span class="tile-num">05</span><img src="menu-img/american.webp" alt="미국식 조식" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">양식</span></div><h3>미국식 조식</h3><p class="tile-desc">달걀 요리와 빵, 커피로 구성한 아침</p><p class="tile-price">₩28,000<small>/1인</small></p></div></article>
           </div>
         </div>
 
         <!-- 중식 -->
-        <div class="menu-panel" id="menu-lunch">
-          <div class="menu-grid">
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="돌문어우거지해장국.png" alt="돌문어우거지해장국">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>돌문어우거지해장국</h4>
-                <p class="menu-feature">핵심 특징: 돌문어와 우거지의 시원한 해장국</p>
-                <span class="menu-price">₩20,000 / 1인</span>
-                <p class="menu-condition">이용조건: 중식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="중국식냉면.png" alt="중국식냉면">
-                <span class="menu-card-label">CHINESE</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>중국식냉면</h4>
-                <p class="menu-feature">핵심 특징: 중국식 소스로 완성한 시원한 냉면</p>
-                <span class="menu-price">₩22,000 / 1인</span>
-                <p class="menu-condition">이용조건: 중식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="멍게&해초비빔밥과 냉이된장찌개.png" alt="멍게&해초비빔밥과 냉이된장찌개">
-                <span class="menu-card-label">SEASONAL</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>멍게&amp;해초비빔밥과 냉이된장찌개</h4>
-                <p class="menu-feature">핵심 특징: 바다의 향긋함과 봄의 미각</p>
-                <span class="menu-price">₩23,000 / 1인</span>
-                <p class="menu-condition">이용조건: 중식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="보양식 오리탕.png" alt="보양식 오리탕">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>보양식 오리탕</h4>
-                <p class="menu-feature">핵심 특징: 진한 육수와 부드러운 오리고기로 완성한 보양식</p>
-                <span class="menu-price">₩23,000 / 1인</span>
-                <p class="menu-condition">이용조건: 중식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="유산슬덮밥과가지튀김.png" alt="유산슬덮밥과 가지튀김">
-                <span class="menu-card-label">CHINESE</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>유산슬덮밥과 가지튀김</h4>
-                <p class="menu-feature" style="white-space: nowrap;">핵심 특징: 풍성한 해물 유산슬과 바삭한 가지튀김</p>
-                <span class="menu-price">₩25,000 / 1인</span>
-                <p class="menu-condition">이용조건: 중식 운영 시간 내 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="한상차림.png" alt="시그니처 한상차림">
-                <span class="menu-card-label">SIGNATURE</span>
-              </div>
-              <div class="menu-card-info">
-                <h4>시그니처 한상차림</h4>
-                <div class="menu-hansang-list">
-                  <div class="hansang-item"><span>돼지불고기</span> <strong>₩18,900 / 1인</strong></div>
-                  <div class="hansang-item"><span>고추장흑돼지</span> <strong>₩21,900 / 1인</strong></div>
-                  <div class="hansang-item"><span>매콤낙지볶음</span> <strong>₩22,900 / 1인</strong></div>
-                  <div class="hansang-item"><span>담백오리불고기</span> <strong>₩23,900 / 1인</strong></div>
+        <div class="menu-panel" id="menu-lunch" role="tabpanel">
+          <div class="tile-grid">
+            <article class="tile"><div class="tile-img t4"><span class="tile-num">01</span><img src="menu-img/domun.webp" alt="돌문어우거지해장국" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>돌문어우거지해장국</h3><p class="tile-desc">돌문어와 우거지의 시원한 해장국</p><p class="tile-price">₩20,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t3"><span class="tile-num">02</span><img src="menu-img/hwangtae.webp" alt="대관령황태해장국" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>대관령황태해장국</h3><p class="tile-desc">황태와 콩나물, 무를 넣어 끓인 맑은 해장국</p><p class="tile-price">₩20,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t2"><span class="tile-num">03</span><img src="menu-img/jjamppong.webp" alt="나가사끼식 꽃게짬뽕" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">중식</span></div><h3>나가사끼식 꽃게짬뽕</h3><p class="tile-desc">꽃게와 오징어, 새우를 넣은 해물 짬뽕</p><p class="tile-price">₩22,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t1"><span class="tile-num">04</span><img src="menu-img/eel.webp" alt="국내산시래기민물장어탕" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">한식</span></div><h3>국내산시래기민물장어탕</h3><p class="tile-desc">시래기와 국내산 민물장어로 끓인 얼큰한 탕</p><p class="tile-price">₩23,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t6"><span class="tile-num">05</span><img src="menu-img/galbi.webp" alt="한방통전복갈비탕" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag tag--ci">프리미엄</span></div><h3>한방통전복갈비탕</h3><p class="tile-desc">통전복과 갈비를 한방 육수에 담은 갈비탕</p><p class="tile-price">₩23,000<small>/1인</small></p></div></article>
+            <article class="tile"><div class="tile-img t5"><span class="tile-num">06</span><img src="menu-img/jeongabok.webp" alt="사천식 전가복덮밥" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag">중식</span></div><h3>사천식 전가복덮밥</h3><p class="tile-desc">새우와 해물, 채소를 사천식 소스로 볶아 올린 덮밥</p><p class="tile-price">₩25,000<small>/1인</small></p></div></article>
+            <article class="tile tile--hansang"><div class="tile-img t4"><span class="tile-num">07</span><img src="menu-img/hansang.webp" alt="시그니처 한상차림" loading="lazy"></div>
+              <div class="tile-body"><div class="tile-tags"><span class="tag tag--ci">시그니처</span></div><h3>시그니처 한상차림</h3>
+                <div class="hansang-list">
+                  <div class="hansang-item"><span>돼지불고기</span><strong>₩18,900</strong></div>
+                  <div class="hansang-item"><span>고추장흑돼지</span><strong>₩21,900</strong></div>
+                  <div class="hansang-item"><span>매콤낙지볶음</span><strong>₩22,900</strong></div>
+                  <div class="hansang-item"><span>담백오리불고기</span><strong>₩23,900</strong></div>
                 </div>
-                <p class="menu-condition">이용조건: 3인 이상 이용시 주문 가능</p>
-              </div>
-            </div>
+                <p class="tile-cond">3인 이상 주문 가능 · 1인 기준</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== S6 그늘집 · 스타트하우스 (레퍼런스: 사진 카드 + 글 + 다음 사진) ===== -->
+    <section class="course" id="course" data-slider data-interval="6000">
+      <div class="course-bg" aria-hidden="true">
+        <img data-slide="0" class="is-active" src="photo/sh-jadam.webp" alt="" loading="lazy">
+        <img data-slide="1" src="photo/sh-plate.webp" alt="" loading="lazy">
+      </div>
+      <div class="container">
+        <div class="course-top">
+          <div class="sec-head">
+            <span class="eyebrow">ON THE COURSE</span>
+            <h2 class="sec-title">그늘집 · 스타트하우스</h2>
+            <p class="sec-desc">라운드 중 간식과 음료, 함께 나누는 플래터 메뉴</p>
+            <p class="course-season"><i class="fas fa-leaf" aria-hidden="true"></i>메뉴는 계절·시기별로 변경됩니다.</p>
+          </div>
+          <div class="course-arrows">
+            <button type="button" class="course-arrow" data-prev aria-label="이전 사진"><svg width="32" height="12" viewBox="0 0 32 12" aria-hidden="true"><path d="M31 6H1M6 1 1 6l5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="course-arrow" data-next aria-label="다음 사진"><svg width="32" height="12" viewBox="0 0 32 12" aria-hidden="true"><path d="M1 6h30M26 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           </div>
         </div>
 
-        <!-- 일품 -->
-        <div class="menu-panel" id="menu-alacarte">
-          <div class="menu-grid">
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?w=400&h=260&fit=crop" alt="파스타">
-                <span class="menu-card-label">PASTA</span>
-              </div>
-              <div class="menu-card-info">
-                <p class="menu-feature">핵심 특징: 런치/디너 동시 운영</p>
-                <p class="menu-condition">이용조건: 상시 주문 가능</p>
-              </div>
+        <div class="course-stage" aria-roledescription="carousel" aria-label="스타트하우스 메뉴 사진">
+          <div class="course-photo">
+              <img data-slide="0" class="is-active" src="photo/sh-jadam.webp" alt="자담시그니처플래터 — 양념·후라이드 치킨, 웨지감자, 치즈볼, 샐러드, 치킨무" loading="lazy">
+              <img data-slide="1" src="photo/sh-plate.webp" alt="골뱅이소면과 치킨가라아게" loading="lazy">
+          </div>
+          <div class="course-info">
+            <div class="course-name">
+              <h3>스타트하우스</h3>
+              <span class="tag tag--ci">SPECIAL DEAL</span>
             </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&h=260&fit=crop" alt="비빔밥">
-                <span class="menu-card-label">KOREAN</span>
-              </div>
-              <div class="menu-card-info">
-                <p class="menu-feature">핵심 특징: 국내산 재료만 사용</p>
-                <p class="menu-condition">이용조건: 상시 주문 가능</p>
-              </div>
-            </div>
-            <div class="menu-card">
-              <div class="menu-card-img">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=260&fit=crop" alt="샐러드">
-                <span class="menu-card-label">SALAD</span>
-              </div>
-              <div class="menu-card-info">
-                <p class="menu-feature">핵심 특징: 유기농 채소 + 크루통</p>
-                <p class="menu-condition">이용조건: 상시 주문 가능</p>
-              </div>
-            </div>
+            <p class="course-sub">플래터 · 한상 메뉴</p>
+            <ul class="course-list"><li>자담시그니처플래터</li><li>보리새우모듬어묵전골</li><li>골뱅이소면&amp;치킨가라아게</li><li>노스팜 화덕족발 한상</li><li>노스팜 냉채족발</li><li>국물떡볶이와 대왕고추튀김</li><li>고르곤졸라피자와 닭날개튀김</li><li>페퍼로니피자와 닭날개튀김</li><li>모듬소세지 플래터</li></ul>
+            <p class="course-price">₩42,000 ~ ₩52,000</p>
+          </div>
+          <div class="course-peek" aria-hidden="true">
+              <img data-slide="0" class="is-active" src="photo/sh-plate.webp" alt="" loading="lazy">
+              <img data-slide="1" src="photo/sh-jadam.webp" alt="" loading="lazy">
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SNACK HOUSE SECTION ===== -->
-  <section class="snackhouse-section" id="snack-house">
-    <div class="snackhouse-bg">
-      <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1920&h=600&fit=crop" alt="골프코스 배경" class="snackhouse-bg-img">
-      <div class="snackhouse-overlay"></div>
-    </div>
-    <div class="container">
-      <div class="section-header section-header--light">
-        <span class="section-eyebrow">SNACK HOUSE</span>
-        <h2 class="section-title">그늘집</h2>
-        <p class="section-desc">라운딩 중 에너지 충전을 위한 신선한 간식과 음료</p>
-      </div>
-      <div class="snack-duo-wrap">
-        <div class="snack-card">
-          <div class="snack-icon"><i class="fas fa-hotdog"></i></div>
-          <h4>그늘집</h4>
-          <ul>
-            <li>핫도그</li>
-            <li>컵라면 / 훈제란</li>
-            <li>스낵</li>
-            <li>맥주 / 음료</li>
-          </ul>
-          <div class="snack-price-range">₩5,000 ~ ₩15,000</div>
-        </div>
-        <div class="snack-card snack-card--featured">
-          <div class="snack-featured-tag">SPECIAL DEAL</div>
-          <div class="snack-icon"><i class="fas fa-coffee"></i></div>
-          <h4>스타트하우스</h4>
-          <ul>
-            <li>노스팜 화덕족발 한상</li>
-            <li>노스팜 냉채족발</li>
-            <li>국물떡볶이와 대왕고추튀김</li>
-            <li>고르곤졸라피자와 닭날개튀김</li>
-            <li>페퍼로니피자와 닭날개튀김</li>
-            <li>모듬소세지 플래터</li>
-          </ul>
-          <div class="snack-price-range">₩42,000 ~ ₩52,000</div>
+        <div class="course-shade">
+          <div class="shade-name">
+            <span class="course-icon"><i class="fas fa-mug-hot" aria-hidden="true"></i></span>
+            <div><h3>그늘집</h3><p class="course-sub">07:00 ~ 17:00 · 코스 내</p></div>
+          </div>
+          <ul class="shade-list"><li>핫도그</li><li>컵라면 / 훈제란</li><li>스낵</li><li>맥주 / 음료</li></ul>
+          <p class="course-price">₩5,000 ~ ₩15,000</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROMOTION SECTION ===== -->
-  <section class="promo-banner" id="promotion">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-eyebrow">SPECIAL OFFERS</span>
-        <h2 class="section-title">진행 중인 프로모션</h2>
-        <p class="section-desc">노스팜CC가 제안하는 계절의 맛과 품격 있는 혜택</p>
-      </div>
+    <!-- ===== S7 프로모션 ===== -->
+    <section class="promo" id="promotion">
+      <div class="container">
+        <div class="sec-head">
+          <span class="eyebrow">PROMOTION</span>
+          <h2 class="sec-title">진행 중인 프로모션</h2>
+        </div>
 
-      <!-- Lady Day Promotion (Special Focus) -->
-      <div class="promo-special-focus">
-        <div class="promo-focus-video">
-          <video autoplay muted loop playsinline class="focus-video-el">
+        <article class="lady">
+          <video autoplay muted loop playsinline preload="metadata" aria-label="Lady Day 프로모션 영상">
             <source src="핑크 깔끔한 봄맞이 프로모션 인스타그램 스토리(스토리).mp4" type="video/mp4">
-            브라우저가 비디오 태그를 지원하지 않습니다.
           </video>
-          <div class="video-overlay-tag">Lady Day</div>
-        </div>
-        <div class="promo-focus-content">
-          <span class="focus-eyebrow">SPRING SPECIAL</span>
-          <h3>매주 월요일의 선물<br><span class="text-gradient-pink">Lady Day</span></h3>
-          <p class="focus-desc">노스팜이 제안하는 월요일의 우아한 라운딩.<br>팀당 여성 고객 4인 내장 시 특별한 미식 혜택을 드립니다.</p>
-          
-          <div class="focus-benefit-list">
-            <div class="focus-benefit-item focus-benefit-item--featured">
-              <div class="benefit-icon"><i class="fas fa-utensils"></i></div>
-              <div class="benefit-text">
-                <strong>단품식사 2종(택1) + 커피</strong>
-                <span class="price-highlight">1인 ₩23,900</span>
-              </div>
+          <div>
+            <span class="eyebrow">매주 월요일</span>
+            <h3>Lady Day</h3>
+            <p class="lead">월요일에 팀당 여성 고객 4인이 내장하면 단품식사와 커피를 특별가로 드립니다.</p>
+            <div class="lady-facts">
+              <div class="lady-fact"><span>가격</span><strong class="price">1인 ₩23,900</strong></div>
+              <div class="lady-fact"><span>구성</span><strong>단품식사 2종 중 택1 + 커피</strong></div>
+              <div class="lady-fact"><span>대상</span><strong>월요일 내장 팀당 여성 고객 4인</strong></div>
             </div>
           </div>
+        </article>
 
-          <div class="focus-info-footer">
-            <p><i class="fas fa-users"></i> 대상: 월요일 내장 팀당 여성고객 4인</p>
-          </div>
+        <div class="group-head">
+          <div><h3>연단체 프로모션</h3><p>연단체 고객을 위한 세 가지 혜택입니다.</p></div>
+          <a href="tel:031-950-6962" class="btn btn--ci"><i class="fas fa-phone-alt" aria-hidden="true"></i>단체 예약 문의</a>
         </div>
-      </div>
+        <div class="promo-grid">
+          <article class="promo-card">
+            <img src="프로모션1.png" alt="연단체 프로모션1 — 이달의 음식" loading="lazy">
+            <div class="promo-card-body">
+              <div class="tile-tags"><span class="tag tag--ci">특가</span></div>
+              <h4>전식사 1만원</h4>
+              <dl>
+                <div class="promo-row"><dt>혜택</dt><dd>전후식사 모두 이용 시, 전식사 1만원 (이달의 음식 2종)</dd></div>
+                <div class="promo-row"><dt>조건</dt><dd>3팀 이상 단체 중 2/3 이상 전식사 이용 시 적용</dd></div>
+              </dl>
+              <p class="promo-period">적용 기간: 상시 운영 (변동 가능)</p>
+            </div>
+          </article>
+          <article class="promo-card">
+            <img src="프로모션2 닭날개.jpg" alt="연단체 프로모션2 — 닭날개 안주" loading="lazy">
+            <div class="promo-card-body">
+              <div class="tile-tags"><span class="tag tag--ci">서비스</span></div>
+              <h4>팀당 닭날개 안주 제공</h4>
+              <dl>
+                <div class="promo-row"><dt>혜택</dt><dd>팀당 5만원 상당 안주(닭날개) 무료 제공</dd></div>
+                <div class="promo-row"><dt>조건</dt><dd>전후식사를 클럽하우스 원가 기준으로 이용 시 적용</dd></div>
+              </dl>
+              <p class="promo-period">적용 기간: 상시 운영 (변동 가능)</p>
+            </div>
+          </article>
+          <article class="promo-card">
+            <img src="프로모션3.png" alt="연단체 프로모션3 — 단체 식사 리워드" loading="lazy">
+            <div class="promo-card-body">
+              <div class="tile-tags"><span class="tag tag--ci">리워드</span></div>
+              <h4>후식사 누적 리워드</h4>
+              <dl>
+                <div class="promo-row"><dt>혜택</dt><dd>후식사 이용 횟수 누적 시, 단계별 혜택 제공</dd></div>
+                <div class="promo-row"><dt>조건</dt><dd>3회(피쳐 1개) · 6회(샐러드) · 9회(닭날개) 달성 시 제공</dd></div>
+              </dl>
+              <p class="promo-period">적용 기간: 상시 운영 (변동 가능)</p>
+            </div>
+          </article>
+        </div>
 
-      <div class="section-header" style="margin-top: 80px; margin-bottom: 40px;">
-        <span class="section-eyebrow">GROUP PROMOTION</span>
-        <h2 class="section-title">연단체 프로모션</h2>
-      </div>
-      <div class="promo-grid">
-        <div class="promo-card">
-          <div class="promo-card-img">
-            <img src="프로모션1.png" alt="연단체 프로모션1" class="promo-img-ugeoji">
-          </div>
-          <div class="promo-card-body">
-            <h3>[연단체 프로모션1 : 특가]</h3>
-            <p class="promo-benefit promo-benefit--tight">혜택: 전후식사 모두 이용 시, 전식사 1만원(이달의 음식 2종)</p>
-            <p class="promo-condition">조건: 3팀 이상 단체 중 2/3 이상 전식사 이용 시 적용</p>
-            <div class="promo-trust-list">
-              <div class="promo-trust-item"><span>적용 기간</span><strong>상시 운영 (변동 가능)</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="promo-card">
-          <div class="promo-card-img">
-            <img src="프로모션2 닭날개.jpg" alt="연단체 프로모션2">
-          </div>
-          <div class="promo-card-body">
-            <h3>[연단체 프로모션2: 서비스]</h3>
-            <p class="promo-benefit">혜택: 팀당 5만원 상당 안주(닭날개) 무료 제공</p>
-            <p class="promo-condition">조건: 전후식사를 클럽하우스 원가 기준으로 이용 시 적용</p>
-            <div class="promo-trust-list">
-              <div class="promo-trust-item"><span>적용 기간</span><strong>상시 운영 (변동 가능)</strong></div>
-            </div>
-          </div>
-        </div>
-        <div class="promo-card">
-          <div class="promo-card-img">
-            <img src="프로모션3.png" alt="연단체 프로모션3">
-          </div>
-          <div class="promo-card-body">
-            <h3>[연단체 프로모션3: 리워드]</h3>
-            <p class="promo-benefit">혜택: 후식사 이용 횟수 누적 시, 단계별 혜택 제공</p>
-            <p class="promo-condition">조건: 3회(피쳐1개) 6회(샐러드) 9회(닭날개) 달성 시 제공</p>
-            <div class="promo-trust-list">
-              <div class="promo-trust-item"><span>적용 기간</span><strong>상시 운영 (변동 가능)</strong></div>
-            </div>
-          </div>
+        <div class="checklist">
+          <div class="check-item"><i class="fas fa-calendar-check" aria-hidden="true"></i>
+            <div><h4>D-2 사전 예약 권장</h4><p>원활한 음식 준비를 위해 이용일 기준 최소 2일 전 예약을 권장합니다.</p></div></div>
+          <div class="check-item"><i class="fas fa-cloud-rain" aria-hidden="true"></i>
+            <div><h4>프로모션1 적용 불가 조건</h4><p>우천 및 홀아웃(라운드 중단) 시에는 할인 혜택이 적용되지 않습니다.</p></div></div>
+          <div class="check-item"><i class="fas fa-circle-info" aria-hidden="true"></i>
+            <div><h4>프로모션 중복 불가</h4><p>예약 1건당 가장 유리한 혜택 하나만 선택하여 이용할 수 있습니다.</p></div></div>
         </div>
       </div>
-      <div class="promo-checklist">
-        <h3>필수 체크리스트</h3>
-        <div class="promo-checklist-item">
-          <h4>D-2 사전 예약 권장</h4>
-          <p>원활한 음식 준비를 위해 이용일 기준 최소 2일전 예약을 권장합니다.</p>
-        </div>
-        <div class="promo-checklist-item">
-          <h4>연단체 프로모션1 적용 불가 조건 확인</h4>
-          <p>우천 및 홀아웃(라운드 중단) 시에는 할인 혜택 적용되지 않습니다.</p>
-        </div>
-        <div class="promo-checklist-item">
-          <h4>프로모션 중복 불가</h4>
-          <p>예약 1건당 가장 유리한 혜택 하나만 선택하여 이용 가능합니다.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FOOTER ===== -->
+    <!-- ===== S8 예약 띠 ===== -->
+    <section class="cta-band" id="contact" aria-label="예약 문의">
+      <div class="container cta-inner">
+        <div>
+          <h2>라운드 일정에 맞춰<br>식사를 미리 예약하세요</h2>
+          <p>단체·연단체 식사는 이용일 2일 전까지 문의해 주세요.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="tel:031-950-6962" class="btn btn--ci"><i class="fas fa-phone-alt" aria-hidden="true"></i>031-950-6962 전화 문의</a>
+          <button type="button" class="btn btn--glass" onclick="openMapPopup()"><i class="fas fa-location-dot" aria-hidden="true"></i>오시는 길</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-logo">
-            <span class="footer-logo-fnb">식음료팀 F&amp;B</span>
-          </div>
-          <p class="footer-brand-desc">자연과 함께하는 최고의 다이닝.<br>노스팜CC 식음팀이 최상의 미식 경험을 제공합니다.</p>
-          <div class="footer-sns">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-          </div>
+          <img src="images/logo-npcc-ondark.png" alt="노스팜 컨트리클럽" width="540" height="107">
+          <p>노스팜CC 식음료팀 F&amp;B<br>클럽하우스 레스토랑 · 그늘집 · 스타트하우스</p>
         </div>
-        <div class="footer-info">
-          <h5>식음팀 안내</h5>
+        <div>
+          <h5>안내</h5>
           <ul>
-            <li><i class="fas fa-phone-alt"></i> 031-950-6962</li>
+            <li><a href="tel:031-950-6962">식음팀 031-950-6962</a></li>
+            <li><a href="#menu">클럽하우스 레스토랑</a></li>
+            <li><a href="#course">그늘집 · 스타트하우스</a></li>
+            <li><a href="#promotion">프로모션</a></li>
           </ul>
         </div>
-        <div class="footer-links">
-          <h5>식음 메뉴</h5>
-          <ul>
-            <li><a href="#restaurant">클럽하우스 레스토랑</a></li>
-            <li><a href="#snack-house">그늘집</a></li>
-            <li><a href="#snack-house">스타트하우스</a></li>
-            <li><a href="#promotion">프로모션 &amp; 이벤트</a></li>
-          </ul>
-        </div>
-        <div class="footer-address">
+        <div>
           <h5>오시는 길</h5>
-          <p><i class="fas fa-map-marker-alt"></i> 경기도 파주시 광탄면 쇠장이길 265<br>노스팜 클럽하우스</p>
-          <button type="button" class="footer-map-btn" onclick="openMapPopup()"><i class="fas fa-map"></i> 지도 보기</button>
+          <p>경기도 파주시 광탄면 쇠장이길 265<br>노스팜 클럽하우스</p>
+          <button type="button" class="footer-map-btn" onclick="openMapPopup()"><i class="fas fa-map" aria-hidden="true"></i>지도 보기</button>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Northpalm Country Club · F&amp;B Team. All Rights Reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="https://www.npcc.co.kr" target="_blank">노스팜CC 홈페이지</a>
-        </div>
+        <p>© 2026 Northpalm Country Club · F&amp;B Team</p>
+        <a href="https://www.npcc.co.kr" target="_blank" rel="noopener noreferrer">노스팜CC 홈페이지</a>
       </div>
     </div>
   </footer>
 
-  <!-- ===== FLOATING SCROLL TOP ===== -->
-  <div class="floating-btns">
-    <button class="floating-btn floating-btn--top" onclick="scrollToTop()" title="맨 위로">
-      <i class="fas fa-chevron-up"></i>
-    </button>
+  <div class="call-bar" aria-label="빠른 연락">
+    <a href="tel:031-950-6962" class="btn btn--ci"><i class="fas fa-phone-alt" aria-hidden="true"></i>전화 예약</a>
+    <button type="button" class="btn btn--light" onclick="openMapPopup()"><i class="fas fa-location-dot" aria-hidden="true"></i>오시는 길</button>
   </div>
 
-  <!-- Toast -->
-  <div id="toast" class="toast"></div>
+  <button type="button" class="floating-btn--top" onclick="scrollToTop()" aria-label="맨 위로"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
-  <!-- Map Popup -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <div id="mapPopup" class="map-popup" onclick="closeMapPopup(event)">
     <div class="map-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="mapPopupTitle">
-      <button type="button" class="map-popup-close" onclick="closeMapPopup()"><i class="fas fa-times"></i></button>
+      <button type="button" class="map-popup-close" aria-label="닫기" onclick="closeMapPopup()"><i class="fas fa-times" aria-hidden="true"></i></button>
       <h3 id="mapPopupTitle">노스팜 클럽하우스 위치</h3>
       <iframe
         class="map-popup-frame"
@@ -516,11 +401,11 @@
       ></iframe>
       <p>경기도 파주시 광탄면 쇠장이길 265</p>
       <div class="map-popup-actions">
-        <a href="https://map.naver.com/v5/directions/126.9110085,37.7888930,노스팜CC" target="_blank" rel="noopener noreferrer" class="btn-map-app btn-naver" data-app="nmap://route/car?dlat=37.7888930&dlng=126.9110085&dname=노스팜CC" data-web="https://map.naver.com/v5/directions/,,노스팜CC,126.9110085,37.7888930,ADDRESS_POI,0"><i class="fas fa-map-marked-alt"></i> 네이버 지도</a>
-        <a href="https://map.kakao.com/link/to/노스팜CC,37.7888930,126.9110085" target="_blank" rel="noopener noreferrer" class="btn-map-app btn-kakao" data-app="kakaomap://route?ep=37.7888930,126.9110085&by=CAR" data-web="https://map.kakao.com/link/to/노스팜CC,37.7888930,126.9110085"><i class="fas fa-comment"></i> 카카오맵</a>
-        <a href="https://surl.tmap.co.kr/r/37.7888930,126.9110085" target="_blank" rel="noopener noreferrer" class="btn-map-app btn-tmap" data-app="tmap://route?goalname=노스팜CC&goalx=126.9110085&goaly=37.7888930" data-web="https://surl.tmap.co.kr/r/37.7888930,126.9110085"><i class="fas fa-car-side"></i> 티맵</a>
-        <a href="tel:031-950-6962" class="btn-call"><i class="fas fa-phone-alt"></i> 전화걸기</a>
-        <button type="button" onclick="copyAddress()" class="btn-copy"><i class="fas fa-copy"></i> 주소복사</button>
+        <a href="https://map.naver.com/v5/directions/126.9110085,37.7888930,노스팜CC" target="_blank" rel="noopener noreferrer" class="btn-map-app" data-app="nmap://route/car?dlat=37.7888930&dlng=126.9110085&dname=노스팜CC" data-web="https://map.naver.com/v5/directions/,,노스팜CC,126.9110085,37.7888930,ADDRESS_POI,0"><i class="fas fa-map-marked-alt" aria-hidden="true"></i>네이버 지도</a>
+        <a href="https://map.kakao.com/link/to/노스팜CC,37.7888930,126.9110085" target="_blank" rel="noopener noreferrer" class="btn-map-app" data-app="kakaomap://route?ep=37.7888930,126.9110085&by=CAR" data-web="https://map.kakao.com/link/to/노스팜CC,37.7888930,126.9110085"><i class="fas fa-comment" aria-hidden="true"></i>카카오맵</a>
+        <a href="https://surl.tmap.co.kr/r/37.7888930,126.9110085" target="_blank" rel="noopener noreferrer" class="btn-map-app" data-app="tmap://route?goalname=노스팜CC&goalx=126.9110085&goaly=37.7888930" data-web="https://surl.tmap.co.kr/r/37.7888930,126.9110085"><i class="fas fa-car-side" aria-hidden="true"></i>티맵</a>
+        <a href="tel:031-950-6962" class="btn-call"><i class="fas fa-phone-alt" aria-hidden="true"></i>전화걸기</a>
+        <button type="button" onclick="copyAddress()"><i class="fas fa-copy" aria-hidden="true"></i>주소복사</button>
       </div>
     </div>
   </div>
