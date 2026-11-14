@@ -26,9 +26,21 @@ function initSlider(root) {
     root.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager'; });
   });
 
+  root.style.setProperty('--interval', `${interval}ms`);
+
+  // 지금 켜진 점의 진행 막대를 처음부터 다시 채움 (다시 넘기기 시작할 때)
+  const restartProgress = () => {
+    const dot = root.querySelector('[data-go].is-active');
+    if (!dot) return;
+    dot.classList.remove('is-active');
+    void dot.offsetWidth;
+    dot.classList.add('is-active');
+  };
+
+  // Windows '애니메이션 표시'가 꺼진 PC에서도 자동 넘김 유지
   const schedule = () => {
     clearTimeout(timer);
-    if (reduceMotion || paused) return;
+    if (paused) return;
     timer = setTimeout(() => go(index + 1), interval);
   };
 
@@ -49,16 +61,30 @@ function initSlider(root) {
   };
 
   const setPaused = (value) => {
+    if (paused === value) return;
     paused = value;
-    if (value) clearTimeout(timer); else schedule();
+    root.classList.toggle('is-paused', value);
+    if (value) {
+      clearTimeout(timer);
+    } else {
+      restartProgress();
+      schedule();
+    }
   };
 
   root.querySelector('[data-prev]')?.addEventListener('click', () => go(index - 1));
   root.querySelector('[data-next]')?.addEventListener('click', () => go(index + 1));
   root.querySelectorAll('[data-go]').forEach((btn) => btn.addEventListener('click', () => go(Number(btn.dataset.go))));
-  root.addEventListener('mouseenter', () => setPaused(true));
-  root.addEventListener('mouseleave', () => setPaused(false));
-  root.addEventListener('focusin', () => setPaused(true));
+
+  // 마우스를 올리면 멈춤 — data-hover-pause가 있으면 그 요소 위에서만
+  // (히어로는 화면 전체라 섹션 전체로 잡으면 커서가 늘 그 안에 있어 영영 안 넘어감)
+  const pauseZones = root.querySelectorAll('[data-hover-pause]');
+  (pauseZones.length ? pauseZones : [root]).forEach((zone) => {
+    zone.addEventListener('mouseenter', () => setPaused(true));
+    zone.addEventListener('mouseleave', () => setPaused(false));
+  });
+  // 키보드로 들어왔을 때만 멈춤 (마우스로 화살표를 누른 뒤에도 자동 넘김은 계속)
+  root.addEventListener('focusin', (e) => { if (e.target.matches(':focus-visible')) setPaused(true); });
   root.addEventListener('focusout', (e) => { if (!root.contains(e.relatedTarget)) setPaused(false); });
   document.addEventListener('visibilitychange', () => setPaused(document.hidden));
   root.addEventListener('keydown', (e) => {
@@ -77,6 +103,40 @@ function initSlider(root) {
   });
 
   go(0);
+}
+
+// ===================================================
+// 1-1. 히어로 그릇 — 커서를 따라 살짝 기울고 떠오름
+//      마우스가 있는 PC에서만 (Windows '애니메이션 표시'가 꺼져 있어도 동작 — 대표님 지시)
+// ===================================================
+const TILT_DEG = 12;
+
+function initDishTilt() {
+  const dish = document.querySelector('.hero-dish');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!dish || !finePointer) return;
+  let frame = 0;
+
+  const setTilt = (x, y) => {
+    dish.style.setProperty('--tilt-x', `${(-y * TILT_DEG).toFixed(2)}deg`);
+    dish.style.setProperty('--tilt-y', `${(x * TILT_DEG).toFixed(2)}deg`);
+    dish.style.setProperty('--glow-x', `${(50 + x * 40).toFixed(1)}%`);
+    dish.style.setProperty('--glow-y', `${(50 + y * 40).toFixed(1)}%`);
+  };
+
+  dish.addEventListener('pointerenter', () => dish.classList.add('is-hover'));
+  dish.addEventListener('pointermove', (e) => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const box = dish.getBoundingClientRect();
+      setTilt((e.clientX - box.left) / box.width - 0.5, (e.clientY - box.top) / box.height - 0.5);
+    });
+  });
+  dish.addEventListener('pointerleave', () => {
+    cancelAnimationFrame(frame);
+    dish.classList.remove('is-hover');
+    setTilt(0, 0);
+  });
 }
 
 // ===================================================
@@ -238,6 +298,7 @@ function showToast(msg) {
 // ===================================================
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-slider]').forEach(initSlider);
+  initDishTilt();
   refreshHeader = initHeaderScroll();
   initMobileNavClose();
   initTabLinks();
