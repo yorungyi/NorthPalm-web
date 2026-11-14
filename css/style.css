@@ -539,6 +539,85 @@ ul { list-style: none; }
   .floating-btn--top { bottom: 88px; }
 }
 
+/* =========================================================
+   S6-1 와인 스크롤 연출 — 화면을 고정하고 스크롤로 144장을 넘김
+   (섹션 높이 = 화면 1장 + 스크롤 5.2장, 무대는 sticky)
+   ========================================================= */
+.wine { position: relative; height: 620vh; height: 620svh; background: var(--cream); color: var(--n-900); }
+.wine-stage { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 620px; overflow: hidden; }
+.wine-canvas {
+  position: absolute; z-index: 2; top: 50%; left: 50%;
+  width: min(94vh, 94svh, 100vw); aspect-ratio: 1; transform: translate(-50%, -50%); pointer-events: none;
+}
+.wine-intro, .wine-outro {
+  position: absolute; z-index: 3; inset: 0; display: flex; justify-content: space-between; align-items: flex-end;
+  padding: calc(var(--header-h) + 64px) 6vw 120px; pointer-events: none;
+}
+.wine-intro-title, .wine-outro-left { align-self: flex-start; }
+.wine-outro-left { max-width: 420px; }
+.wine-intro-title h2, .wine-outro-title {
+  font-size: clamp(40px, 5.6vw, 80px); line-height: 1.08; font-weight: 700; letter-spacing: -.03em; color: var(--n-900);
+}
+.wine-outro-title { margin-bottom: 24px; font-family: var(--font-en); letter-spacing: -.02em; }
+.wine-side { max-width: 340px; pointer-events: auto; }
+.wine-side p, .wine-outro-left p:not(.wine-outro-title), .wine-pour-copy {
+  margin-bottom: 24px; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.6; color: var(--n-600);
+}
+.wine-side .btn i { font-size: 14px; }
+
+/* 따르기: 잔 뒤로 지나가는 좌우 제목 */
+.wine-split {
+  position: absolute; z-index: 1; inset: 0; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4vw; font-size: clamp(56px, 8.4vw, 136px); font-weight: 700; letter-spacing: -.04em; line-height: 1;
+  white-space: nowrap; color: var(--n-900);
+}
+.wine-split span:last-child { color: var(--ci); }
+.wine-split span, .wine-pour-copy, .wine-stats, .wine-outro { visibility: hidden; }
+.wine-pour-copy { position: absolute; z-index: 3; left: 6vw; bottom: 120px; max-width: 360px; margin: 0; }
+
+/* 내려다보기: 원형 카드가 잔 뒤를 아래→위로 통과 */
+.wine-stats { position: absolute; z-index: 1; left: 0; right: 0; top: 100%; display: flex; flex-direction: column; align-items: center; gap: 4vh; }
+.wine-stat {
+  width: clamp(200px, 30vh, 300px); aspect-ratio: 1; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  background: var(--ci-50); color: var(--ci-700); text-align: center;
+}
+.wine-stat strong { font-family: var(--font-en); font-size: clamp(40px, 6vh, 60px); line-height: 1; font-weight: 700; letter-spacing: -.03em; }
+.wine-stat small { margin-left: 2px; font-size: .45em; }
+.wine-stat span { font-size: 15px; font-weight: 700; }
+.wine-stat--dark { background: var(--ci); color: var(--white); }
+
+/* 진행 막대 */
+.wine-progress {
+  position: absolute; z-index: 3; left: 6vw; bottom: 48px; width: min(420px, 40vw); display: grid; gap: 8px;
+  font-family: var(--font-en); font-size: 14px; font-weight: 700; letter-spacing: .16em; color: var(--n-600);
+}
+.wine-progress i { display: block; height: 4px; background: rgba(9,112,100,.14); overflow: hidden; }
+.wine-progress b { display: block; height: 100%; background: var(--ci); transform: scaleX(0); transform-origin: left; }
+
+@media (max-width: 1200px) and (min-aspect-ratio: 4/3) { .wine-side { max-width: 280px; } }
+
+/* 태블릿·세로 화면: 위 제목 / 가운데 잔 / 아래 문구 */
+@media (max-width: 1023px), (max-aspect-ratio: 4/3) {
+  .wine-canvas { width: min(100vw, 58svh); top: 52%; }
+  .wine-intro, .wine-outro { flex-direction: column; align-items: stretch; justify-content: space-between; padding: calc(var(--header-h) + 32px) 6vw 96px; }
+  .wine-side { max-width: 520px; }
+  .wine-outro-left p:not(.wine-outro-title) { display: none; }
+  .wine-split { flex-direction: column; justify-content: center; gap: 44svh; font-size: clamp(44px, 9vw, 88px); }
+  .wine-pour-copy { right: 6vw; bottom: 96px; max-width: 520px; }
+  .wine-progress { bottom: 40px; }
+}
+@media (max-width: 767px) {
+  .wine-canvas { width: min(100vw, 66svh); }
+  /* 아래 고정 연락 바(약 68px)만큼 띄움 */
+  .wine-intro, .wine-outro { padding: calc(var(--header-h) + 24px) 20px 148px; }
+  .wine-intro-title h2, .wine-outro-title { font-size: clamp(36px, 11vw, 52px); }
+  .wine-split { gap: 38svh; padding-bottom: 96px; font-size: clamp(44px, 13vw, 64px); }
+  .wine-pour-copy { left: 20px; right: 20px; bottom: 148px; }
+  .wine-stat { width: 200px; }
+  .wine-progress { left: 20px; bottom: 96px; width: calc(100% - 96px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   /* 사진 넘김·그릇 반응은 대표님 지시로 이 설정에서도 유지 (2026-11-14) */

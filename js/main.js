@@ -140,6 +140,143 @@ function initDishTilt() {
 }
 
 // ===================================================
+// 1-2. 와인 스크롤 연출 — 스크롤 위치로 144장을 넘기고 문구를 단계별로 보여 줌
+//      (코덱스 홈페이지 WineSequence를 GSAP 없이 옮김, 타이밍은 원본과 같음)
+// ===================================================
+const WINE_FRAMES = 144;
+const WINE_SMOOTH = 0.16; // 스크롤을 따라가는 부드러움 (원본 scrub 0.6 정도)
+
+function createWinePlayer(canvas, sources) {
+  const ctx = canvas.getContext('2d');
+  const images = sources.map(() => new Image());
+  const loaded = new Array(sources.length).fill(false);
+  let current = 0;
+
+  const nearestLoaded = (index) => {
+    for (let d = 0; d < sources.length; d += 1) {
+      if (loaded[index - d]) return index - d;
+      if (loaded[index + d]) return index + d;
+    }
+    return -1;
+  };
+  const draw = (index) => {
+    current = index;
+    const ready = nearestLoaded(index);
+    if (!ctx || ready < 0) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(images[ready], 0, 0, canvas.width, canvas.height);
+  };
+  const resize = () => {
+    const size = Math.round(canvas.clientWidth * Math.min(window.devicePixelRatio || 1, 2));
+    if (size > 0 && canvas.width !== size) { canvas.width = size; canvas.height = size; }
+    draw(current);
+  };
+  const load = (order) => {
+    order.forEach((i) => {
+      images[i].decoding = 'async';
+      images[i].onload = () => {
+        loaded[i] = true;
+        if (Math.abs(i - current) <= 2 || nearestLoaded(current) === i) draw(current);
+      };
+      images[i].src = sources[i];
+    });
+  };
+  return { draw, resize, load, last: sources.length - 1 };
+}
+
+const clamp01 = (v) => Math.min(1, Math.max(0, v));
+/** 원본 GSAP 기본값과 같게: 구간 0.05, power2.out */
+const winePhase = (p, start, length = 0.05) => {
+  const t = clamp01((p - start) / length);
+  return 1 - (1 - t) * (1 - t);
+};
+const setShown = (el, alpha, transform) => {
+  if (!el) return;
+  el.style.opacity = String(alpha);
+  el.style.visibility = alpha <= 0.001 ? 'hidden' : 'visible';
+  if (transform !== undefined) el.style.transform = transform;
+};
+
+function initWine() {
+  const section = document.getElementById('wine');
+  if (!section) return;
+  const stage = section.querySelector('.wine-stage');
+  const canvas = section.querySelector('.wine-canvas');
+  const pick = (name) => section.querySelector(`[data-w="${name}"]`);
+  const el = {
+    intro: pick('intro'), split: pick('split'), left: pick('left'), right: pick('right'),
+    copy: pick('pourcopy'), copyOut: pick('pourcopy-out'), stats: pick('stats'), outro: pick('outro'), bar: pick('bar'),
+  };
+  const size = window.matchMedia('(max-width: 767px)').matches ? 'sm' : 'lg';
+  const sources = Array.from({ length: WINE_FRAMES }, (_, i) => `wine/${size}/f${String(i + 1).padStart(3, '0')}.webp`);
+  const player = createWinePlayer(canvas, sources);
+
+  // 섹션이 가까워지면 받기 시작: 첫 장 → 단계 대표 장 → 나머지
+  const keyFrames = [0, 24, 46, 72, 90, 108, player.last];
+  const rest = [...Array(WINE_FRAMES).keys()].filter((i) => !keyFrames.includes(i));
+  let started = false;
+  const startLoading = () => { if (started) return; started = true; player.load([...keyFrames, ...rest]); };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { startLoading(); io.disconnect(); }
+    }, { rootMargin: '150% 0px' });
+    io.observe(section);
+  } else {
+    startLoading();
+  }
+
+  const render = (p) => {
+    player.draw(Math.round(p * player.last));
+    el.bar.style.transform = `scaleX(${p})`;
+
+    const intro = winePhase(p, 0.10);
+    setShown(el.intro, 1 - intro, `translateY(${-40 * intro}px)`);
+
+    const pourOut = winePhase(p, 0.39);
+    const left = winePhase(p, 0.19);
+    const right = winePhase(p, 0.21);
+    setShown(el.split, 1 - pourOut, `translateY(${-30 * pourOut}px)`);
+    setShown(el.left, left, `translateX(${-80 * (1 - left)}px)`);
+    setShown(el.right, right, `translateX(${80 * (1 - right)}px)`);
+    const copy = winePhase(p, 0.24);
+    setShown(el.copy, copy, `translateY(${30 * (1 - copy)}px)`);
+    setShown(el.copyOut, 1 - pourOut, `translateY(${-30 * pourOut}px)`);
+
+    // 원형 카드: 화면 아래 끝 → 위 끝 (잔 뒤를 통과)
+    const travel = clamp01((p - 0.44) / 0.26);
+    const statsIn = clamp01((p - 0.44) / 0.03) * (1 - clamp01((p - 0.69) / 0.03));
+    setShown(el.stats, statsIn, `translateY(${-(stage.clientHeight + el.stats.offsetHeight) * travel}px)`);
+
+    const outro = winePhase(p, 0.82, 0.06);
+    setShown(el.outro, outro, `translateY(${40 * (1 - outro)}px)`);
+  };
+
+  let target = 0;
+  let shown = -1;
+  let frame = 0;
+  const readScroll = () => {
+    const distance = section.offsetHeight - stage.offsetHeight;
+    target = distance > 0 ? clamp01(-section.getBoundingClientRect().top / distance) : 0;
+  };
+  const tick = () => {
+    shown = shown < 0 ? target : shown + (target - shown) * WINE_SMOOTH;
+    if (Math.abs(target - shown) < 0.0005) shown = target;
+    render(shown);
+    frame = shown === target ? 0 : requestAnimationFrame(tick);
+  };
+  const onScroll = () => {
+    readScroll();
+    if (!frame) frame = requestAnimationFrame(tick);
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { player.resize(); onScroll(); }, { passive: true });
+  player.resize();
+  onScroll();
+}
+
+// ===================================================
 // 2. HEADER (히어로 위 투명 → 흰색)
 // ===================================================
 function initHeaderScroll() {
@@ -299,6 +436,7 @@ function showToast(msg) {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-slider]').forEach(initSlider);
   initDishTilt();
+  initWine();
   refreshHeader = initHeaderScroll();
   initMobileNavClose();
   initTabLinks();
